@@ -14,7 +14,7 @@ class ToiletsViewController: UIViewController {
     
     var refreshControl: UIRefreshControl!
     
-    var toilets: [String] = ["A", "B", "C"]
+    var toilets: [Toilet] = [Toilet(rating: 4.5, isTopThree: true), Toilet(rating: 3.0, isTopThree: true), Toilet(rating: 2.5, isTopThree: false)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +71,8 @@ extension ToiletsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ToiletTableViewCell.identifier) as! ToiletTableViewCell
+        let toilet = toilets[indexPath.row]
+        cell.starView.setRating(toilet.rating, inTopThree: toilet.isTopThree)
         return cell
     }
     

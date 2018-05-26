@@ -25,6 +25,7 @@ class NetworkManager {
     
     func getWashrooms(_ handler: @escaping GetWashroomsHandler) {
         let request = Alamofire.request(baseUrl, method: .get, parameters: [:], encoding: JSONEncoding.default, headers: baseHeader)
+        
         request.responseArray { (resp: DataResponse<[Washroom]>) in
             switch resp.result {
             case .success(let washrooms):
@@ -33,6 +34,7 @@ class NetworkManager {
                 error.localizedDescription.errorPrint()
             }
         }
+        
     }
     
     func getWashroomInfo(withId id: Int) {

@@ -19,23 +19,68 @@
                 <rect key="frame" x="0.0" y="0.0" width="356" height="156.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sku-HP-46P">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sku-HP-46P">
                         <rect key="frame" x="0.0" y="0.0" width="356" height="2"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="2UE-5d-pgC"/>
+                        </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkv-if-4Pl">
-                        <rect key="frame" x="16" y="11" width="61" height="33"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2F Megamall A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkv-if-4Pl">
+                        <rect key="frame" x="16" y="18" width="188" height="33"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="24"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP6-RR-vtY" customClass="StarView" customModule="ToiletBook" customModuleProvider="target">
+                        <rect key="frame" x="212" y="22.5" width="136" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="lXE-P5-ZBJ"/>
+                            <constraint firstAttribute="width" constant="136" id="r30-1Q-TZG"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Besides Starbucks, near Jollibee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH2-pF-Bes">
+                        <rect key="frame" x="40" y="59" width="308" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Ey0-xg-WC1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-pin" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-my-v2h">
+                        <rect key="frame" x="16" y="55" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="kt2-JO-dzd"/>
+                            <constraint firstAttribute="width" constant="24" id="uYo-wJ-lpb"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.38823529410000002" green="0.34901960780000002" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="YH2-pF-Bes" firstAttribute="leading" secondItem="2VG-my-v2h" secondAttribute="trailing" id="1JT-YM-8y6"/>
+                    <constraint firstItem="Sku-HP-46P" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="28L-e3-hsJ"/>
+                    <constraint firstItem="Sku-HP-46P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9Qe-5l-EWI"/>
+                    <constraint firstItem="2VG-my-v2h" firstAttribute="bottom" secondItem="YH2-pF-Bes" secondAttribute="bottom" constant="-4" id="CKb-zi-0Fu"/>
+                    <constraint firstItem="2VG-my-v2h" firstAttribute="leading" secondItem="Hkv-if-4Pl" secondAttribute="leading" id="N07-EV-tnD"/>
+                    <constraint firstAttribute="trailing" secondItem="Sku-HP-46P" secondAttribute="trailing" id="UrF-8c-qOG"/>
+                    <constraint firstItem="YH2-pF-Bes" firstAttribute="trailing" secondItem="BP6-RR-vtY" secondAttribute="trailing" id="ZaG-x3-8FK"/>
+                    <constraint firstAttribute="trailing" secondItem="BP6-RR-vtY" secondAttribute="trailing" constant="8" id="dGR-5T-U2u"/>
+                    <constraint firstItem="BP6-RR-vtY" firstAttribute="centerY" secondItem="Hkv-if-4Pl" secondAttribute="centerY" id="eiB-vs-dzb"/>
+                    <constraint firstItem="Hkv-if-4Pl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="iNb-iE-Hux"/>
+                    <constraint firstItem="BP6-RR-vtY" firstAttribute="leading" secondItem="Hkv-if-4Pl" secondAttribute="trailing" constant="8" id="qrF-Cd-D8h"/>
+                    <constraint firstItem="Hkv-if-4Pl" firstAttribute="top" secondItem="Sku-HP-46P" secondAttribute="bottom" constant="16" id="sMe-HJ-HYQ"/>
+                    <constraint firstItem="YH2-pF-Bes" firstAttribute="top" secondItem="Hkv-if-4Pl" secondAttribute="bottom" constant="8" id="xWx-gk-ezv"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="starView" destination="BP6-RR-vtY" id="fxf-eu-NG5"/>
+            </connections>
             <point key="canvasLocation" x="52" y="110.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="location-pin" width="24" height="24"/>
+    </resources>
 </document>

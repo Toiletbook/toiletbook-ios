@@ -12,6 +12,8 @@ class ToiletTableViewCell: UITableViewCell {
     
     static let identifier = "ToiletTableViewCell"
     
+    @IBOutlet weak var starView: StarView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

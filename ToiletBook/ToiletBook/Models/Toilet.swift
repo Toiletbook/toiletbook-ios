@@ -11,6 +11,14 @@ import ObjectMapper
 
 class Toilet: Mappable {
     
+    var rating: Double!
+    var isTopThree: Bool!
+    
+    init(rating: Double, isTopThree: Bool) {
+        self.rating = rating
+        self.isTopThree = isTopThree
+    }
+    
     required init?(map: Map) {
     }
     
