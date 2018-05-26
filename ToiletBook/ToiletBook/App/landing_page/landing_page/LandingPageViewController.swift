@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class LandingPageViewController: UIViewController {
 
@@ -21,16 +22,44 @@ class LandingPageViewController: UIViewController {
     
     let establishments: [String] = ["SM Megamall", "Makati Stock Exchange", "A VERY VERY VERY VERY VERY VERY LONG TEXT"]
     
+    // MARK: - Properties for Location Handling
+    var locationManager: CLLocationManager!
+    
+    // MARK: - Action
+    
+    func searchButtonAction(_ sender: Any) {
+        locationManager.requestLocation()
+    }
+    
+    func refreshControlAction(_ sender: UIRefreshControl) {
+        sender.endRefreshing()
+    }
+
+    func ultimateButtonAction(_sender: Any) {
+        locationManager.requestLocation()
+    }
+    
+    // MARK: - Init
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        initLocationManager()
         initUi()
+    }
+    
+    func initLocationManager() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.requestWhenInUseAuthorization()
     }
    
     func initUi() {
         initNavigationItem()
         initSearchBar()
         initEstablishmentsTableView()
+        initUltimateButtonOverlay()
     }
     
     func initNavigationItem() {
@@ -56,12 +85,35 @@ class LandingPageViewController: UIViewController {
         establishmentsTableView.separatorStyle = .none
     }
     
+    // MARK: - Ultimate View
     
-    func searchButtonAction(_ sender: Any) {
-    }
+    var ultView: UIView!
+    var ultButton: UIButton!
     
-    func refreshControlAction(_ sender: UIRefreshControl) {
-        sender.endRefreshing()
+    func initUltimateButtonOverlay() {
+        
+        ultView = UIView(frame: UIScreen.main.bounds)
+        ultView.backgroundColor = UIColor.white
+        
+        ultButton = UIButton(type: .custom)
+        ultButton.addTarget(self, action: #selector(ultimateButtonAction(_sender:)), for: .touchUpInside)
+        
+        ultButton.backgroundColor = Colors.main.value
+        
+        ultButton.setTitle("FIND NEARBY WASHROOMS", for: .normal)
+        ultButton.titleLabel?.textAlignment = .center
+        ultButton.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 20)
+        ultButton.setTitleColor(UIColor.white, for: .normal)
+        ultButton.setTitleColor(UIColor.white.withAlphaComponent(0.50), for: .highlighted)
+        
+        ultView.addSubview(ultButton)
+        ultButton.translatesAutoresizingMaskIntoConstraints = false
+        ultButton.centerXAnchor.constraint(equalTo: ultView.centerXAnchor).isActive = true
+        ultButton.centerYAnchor.constraint(equalTo: ultView.centerYAnchor).isActive = true
+        ultButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
+        ultButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.85).isActive = true
+        
+        UIApplication.shared.keyWindow?.addSubview(ultView)
     }
 
 }
@@ -96,6 +148,24 @@ extension LandingPageViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: LandingPageTableViewCell.identifier) as! LandingPageTableViewCell
         cell.establishmentNameLabel.text = establishments[indexPath.row]
         return cell
+    }
+    
+}
+
+// Location Stuff:
+extension LandingPageViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        ultView.removeFromSuperview()
+        if let location = locations.first {
+            print(location.coordinate)
+            // do a query here
+            performSegue(withIdentifier: SegueId.toiletsSegue, sender: self)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        ultView.removeFromSuperview()
     }
     
 }
