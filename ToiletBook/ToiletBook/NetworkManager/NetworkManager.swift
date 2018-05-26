@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import AlamofireObjectMapper
 import Foundation
 import ObjectMapper
 
@@ -22,29 +23,21 @@ class NetworkManager {
     static let instance = NetworkManager()
     
     
-    let baseUrl: URL =  URL.init(string: "https://test.com")!
+    let baseUrl: URL =  URL.init(string: "http://toiletbook.space")!
     
     let baseHeader: HTTPHeaders = [:]
     
     
-    func getWashrooms(_ handler: GetWashroomsHandler) {
-        
-        let parameters: Parameters = [:]
-        let request = Alamofire.request(baseUrl, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: baseHeader)
-        
-        request.responseJSON { (r) in
-            
-            switch r.result {
-            case .success(let value):
-                
-                let data = Mapper<
-                
+    func getWashrooms(_ handler: @escaping GetWashroomsHandler) {
+        let request = Alamofire.request(baseUrl, method: .get, parameters: [:], encoding: JSONEncoding.default, headers: baseHeader)
+        request.responseArray { (resp: DataResponse<[Washroom]>) in
+            switch resp.result {
+            case .success(let washrooms):
+                handler(washrooms)
             case .failure(let error):
-                print(error.localizedDescription)
+                error.localizedDescription.errorPrint()
             }
-            
         }
-
     }
     
     func getWashroomInfo(withId id: Int) {
