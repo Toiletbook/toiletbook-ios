@@ -26,7 +26,7 @@ class LandingPageViewController: UIViewController {
     
     var refreshControl: UIRefreshControl!
     
-    var selectedEstablishment: Establishment!
+    var establishmentId: String?
     var establishments: [Establishment] = []
     
     // MARK: - Properties for Location Handling
@@ -42,6 +42,11 @@ class LandingPageViewController: UIViewController {
     
     func refreshControlAction(_ sender: UIRefreshControl) {
         sender.endRefreshing()
+    }
+    
+    func titleViewTapped(_ recognizer: UITapGestureRecognizer) {
+        establishmentId = nil
+        performSegue(withIdentifier: SegueId.toiletsSegue, sender: self)
     }
     
     // MARK: - Init
@@ -77,7 +82,12 @@ class LandingPageViewController: UIViewController {
     }
     
     func initNavigationItem() {
-        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo-textual-purple"))
+        let v = UIImageView(image: #imageLiteral(resourceName: "logo-textual-purple"))
+        navigationItem.titleView = v
+        
+        let gestureRecoginzer = UITapGestureRecognizer(target: self, action: #selector(titleViewTapped(_:)))
+        v.isUserInteractionEnabled = true
+        v.addGestureRecognizer(gestureRecoginzer)
     }
     
     func initSearchBar() {
@@ -105,7 +115,7 @@ extension LandingPageViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueId.toiletsSegue, let dest = segue.destination as? ToiletsViewController {
-            dest.establishmentId = String(selectedEstablishment.id)
+            dest.establishmentId = establishmentId
         }
     }
     
@@ -126,7 +136,7 @@ extension LandingPageViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedEstablishment = establishments[indexPath.row]
+        establishmentId = String(establishments[indexPath.row].id)
         performSegue(withIdentifier: SegueId.toiletsSegue, sender: self)
     }
     
