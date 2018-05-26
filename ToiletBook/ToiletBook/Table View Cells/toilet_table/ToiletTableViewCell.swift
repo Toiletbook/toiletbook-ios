@@ -14,15 +14,16 @@ class ToiletTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var name: UILabel!
-    
+    @IBOutlet weak var starView: StarView!
     
     @IBOutlet weak var locationDescription: UILabel!
     
     @IBOutlet weak var areaNamePill: UIView!
-    
+    @IBOutlet weak var areaNameLabel: UILabel!
     @IBOutlet weak var establishmentNamePill: UIView!
+    @IBOutlet weak var establishmentNameLabel: UILabel!
     
-    @IBOutlet weak var starView: StarView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
