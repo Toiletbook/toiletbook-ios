@@ -57,13 +57,16 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1wn-nz-fIh">
-                        <rect key="frame" x="16" y="91" width="196" height="16"/>
+                        <rect key="frame" x="16" y="91" width="136" height="16"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0m-Qk-t6l">
-                                <rect key="frame" x="0.0" y="0.0" width="94" height="16"/>
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="16"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDSA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XpJ-N5-gwt">
-                                        <rect key="frame" x="0.0" y="0.0" width="94" height="16"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="3DZ-xS-piF"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -79,11 +82,14 @@
                                     <constraint firstAttribute="trailing" secondItem="XpJ-N5-gwt" secondAttribute="trailing" id="vZQ-Yd-Xqd"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcJ-S3-irH">
-                                <rect key="frame" x="102" y="0.0" width="94" height="16"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rn4-lT-1uq">
+                                <rect key="frame" x="72" y="0.0" width="64" height="16"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Megamall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-me-OXz">
-                                        <rect key="frame" x="0.0" y="0.0" width="94" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EDSA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8A-ea-9wG">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="1As-1n-tUJ"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -91,12 +97,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.69803921570000005" green="0.59215686270000001" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="3Kd-me-OXz" firstAttribute="height" secondItem="xcJ-S3-irH" secondAttribute="height" id="LON-hF-qGA"/>
-                                    <constraint firstAttribute="height" constant="16" id="MsJ-s6-dpa"/>
-                                    <constraint firstItem="3Kd-me-OXz" firstAttribute="leading" secondItem="xcJ-S3-irH" secondAttribute="leading" id="SqE-7g-7yO"/>
-                                    <constraint firstItem="3Kd-me-OXz" firstAttribute="centerX" secondItem="xcJ-S3-irH" secondAttribute="centerX" id="bDi-I0-Hu2"/>
-                                    <constraint firstItem="3Kd-me-OXz" firstAttribute="centerY" secondItem="xcJ-S3-irH" secondAttribute="centerY" id="ii8-sR-dSP"/>
-                                    <constraint firstAttribute="trailing" secondItem="3Kd-me-OXz" secondAttribute="trailing" id="wcF-hN-Tfq"/>
+                                    <constraint firstItem="t8A-ea-9wG" firstAttribute="leading" secondItem="Rn4-lT-1uq" secondAttribute="leading" id="8Rk-ZV-YFG"/>
+                                    <constraint firstItem="t8A-ea-9wG" firstAttribute="height" secondItem="Rn4-lT-1uq" secondAttribute="height" id="LoV-c5-vwC"/>
+                                    <constraint firstItem="t8A-ea-9wG" firstAttribute="centerX" secondItem="Rn4-lT-1uq" secondAttribute="centerX" id="UH0-6i-YoK"/>
+                                    <constraint firstAttribute="height" constant="16" id="W2t-fo-I9t"/>
+                                    <constraint firstItem="t8A-ea-9wG" firstAttribute="centerY" secondItem="Rn4-lT-1uq" secondAttribute="centerY" id="dqI-2f-DJh"/>
+                                    <constraint firstAttribute="trailing" secondItem="t8A-ea-9wG" secondAttribute="trailing" id="rez-Cd-tCD"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -124,7 +130,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="areaNamePill" destination="f0m-Qk-t6l" id="koK-8d-ojk"/>
-                <outlet property="establishmentNamePill" destination="xcJ-S3-irH" id="47H-XE-Kxl"/>
                 <outlet property="locationDescription" destination="YH2-pF-Bes" id="utQ-Fp-JaN"/>
                 <outlet property="name" destination="Hkv-if-4Pl" id="2Vu-JN-G8P"/>
                 <outlet property="starView" destination="BP6-RR-vtY" id="fxf-eu-NG5"/>
