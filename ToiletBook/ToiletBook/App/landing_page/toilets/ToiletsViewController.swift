@@ -25,7 +25,7 @@ class ToiletsViewController: UIViewController {
     
     @IBOutlet weak var toiletsTableView: UITableView!
     
-    var establishmentId: String!
+    var establishmentId: String?
     var refreshControl: UIRefreshControl!
     
     var washrooms: [Washroom] = []
@@ -35,9 +35,12 @@ class ToiletsViewController: UIViewController {
         // Do any additional setup after loading the view.
         initUi()
         
-        print(establishmentId)
+        guard let id = establishmentId else {
+            
+            return
+        }
         
-        NetworkManager.instance.requestArray(endpoint: NetworkManager.Endpoints.getEstablishmentWashrooms(establishmentId: establishmentId)) { (resp: DataResponse<[Washroom]>) in
+        NetworkManager.instance.requestArray(endpoint: NetworkManager.Endpoints.getEstablishmentWashrooms(establishmentId: id)) { (resp: DataResponse<[Washroom]>) in
             
             DispatchQueue.main.async {
                 self.washrooms = resp.result.value!
@@ -106,7 +109,7 @@ extension ToiletsViewController: UITableViewDataSource {
         cell.areaNameLabel.text = washroom.area_name
         cell.establishmentNameLabel.text = washroom.establishment_name
         
-        cell.starView.setRating(washroom.general_rating, inTopThree: isTopThree)
+        cell.starView.setRating(washroom.general_rating, inTopThree: isTopThree, sponsored: washroom.is_sponsored.bool)
         
         // setup attributes:
         cell.genderImageView.image = {

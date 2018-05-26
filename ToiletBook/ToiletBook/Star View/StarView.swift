@@ -23,7 +23,7 @@ class StarView: UIView {
     
     var stars: [UIImageView] = []
     
-    func setRating(_ rating: Double, inTopThree: Bool) {
+    func setRating(_ rating: Double, inTopThree: Bool, sponsored: Bool) {
         
         let stringValue = NSDecimalNumber(value: rating).stringValue
         
@@ -34,15 +34,15 @@ class StarView: UIView {
         let starsWithNoHighlight = stars[wholeNumberPart ..< 5]
         
         starsWithHighlight.forEach { (star) in
-            star.image = #imageLiteral(resourceName: "star-full-rating")
+            star.image = !sponsored ? #imageLiteral(resourceName: "star-full-rating") : #imageLiteral(resourceName: "star-full-sponsored")
         }
         
         starsWithNoHighlight.forEach { (star) in
-            star.image = !inTopThree ? #imageLiteral(resourceName: "star-no-rating-hi") : #imageLiteral(resourceName: "star-no-rating-lo")
+            star.image = !inTopThree ?  #imageLiteral(resourceName: "star-no-rating-hi") : #imageLiteral(resourceName: "star-no-rating-lo")
         }
         
         if hasDecimalPart {
-            starsWithNoHighlight.first?.image = !inTopThree ? #imageLiteral(resourceName: "star-half-rating-hi") : #imageLiteral(resourceName: "star-half-rating-lo")
+            starsWithNoHighlight.first?.image = !inTopThree ? (!sponsored ? #imageLiteral(resourceName: "star-half-rating-hi") : #imageLiteral(resourceName: "star-half-sponsored") ) : #imageLiteral(resourceName: "star-half-rating-lo")
         }
         
     }
