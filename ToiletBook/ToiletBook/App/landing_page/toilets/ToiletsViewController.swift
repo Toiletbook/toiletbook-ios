@@ -28,6 +28,7 @@ class ToiletsViewController: UIViewController {
     var establishmentId: String?
     var refreshControl: UIRefreshControl!
     
+    var currentRow: Int!
     var selectedWashroom: Washroom!
     var washrooms: [Washroom] = []
     
@@ -92,6 +93,7 @@ extension ToiletsViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueId.toiletDetailSegue, let dest = segue.destination as? ToiletDetailsViewController {
+            dest.portedView = toiletsTableView.cellForRow(at: IndexPath(row: currentRow, section: 0)) as! ToiletTableViewCell
             dest.washroom = selectedWashroom
         }
     }
@@ -100,6 +102,7 @@ extension ToiletsViewController {
 extension ToiletsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.currentRow = indexPath.row
         self.selectedWashroom = washrooms[indexPath.row]
         self.performSegue(withIdentifier: SegueId.toiletDetailSegue, sender: self)
     }

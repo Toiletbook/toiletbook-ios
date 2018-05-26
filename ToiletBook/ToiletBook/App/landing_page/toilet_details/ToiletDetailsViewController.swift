@@ -12,11 +12,22 @@ class ToiletDetailsViewController: UIViewController {
 
     var washroom: Washroom!
     
+    var portedView: UIView!
+    
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var deeplinkButton: UIButton!
+    @IBOutlet weak var attributeInfoView: UIView!
+    @IBOutlet weak var dataView: UIView!
+    
+    @IBAction func deepLinkButtonAction(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initUi()
-        print(washroom.toJSONString()!)
+        headerView.addSubview(portedView)
+        (portedView as! ToiletTableViewCell).attributesStackView.isHidden = true
     }
     
     func initUi() {

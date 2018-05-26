@@ -31,6 +31,8 @@ class ToiletTableViewCell: UITableViewCell {
     @IBOutlet weak var genderImageView: UIImageView!
     @IBOutlet weak var paymentImageView: UIImageView!
     
+    @IBOutlet weak var attributesStackView: UIStackView!
+    
     func set(_ washroom: Washroom) {
     }
     

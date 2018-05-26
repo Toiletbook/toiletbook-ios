@@ -186,6 +186,7 @@
             <connections>
                 <outlet property="areaNameLabel" destination="XpJ-N5-gwt" id="9sp-FX-x3p"/>
                 <outlet property="areaNamePill" destination="f0m-Qk-t6l" id="koK-8d-ojk"/>
+                <outlet property="attributesStackView" destination="v4a-EF-E4O" id="ehd-Ni-mGW"/>
                 <outlet property="bidetImageView" destination="Fbo-zY-0R4" id="pgi-4i-IK6"/>
                 <outlet property="establishmentNameLabel" destination="t8A-ea-9wG" id="ClO-aX-cMS"/>
                 <outlet property="establishmentNamePill" destination="Rn4-lT-1uq" id="Fgd-7f-1NI"/>
