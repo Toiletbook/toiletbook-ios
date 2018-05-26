@@ -31,14 +31,23 @@ class ToiletTableViewCell: UITableViewCell {
     @IBOutlet weak var genderImageView: UIImageView!
     @IBOutlet weak var paymentImageView: UIImageView!
     
-    
     func set(_ washroom: Washroom) {
     }
     
+    func invertColors(_ isTopThree: Bool) {
+        self.contentView.backgroundColor = !isTopThree ? Colors.main.value : Colors.mainLight.value
+        self.locationDescription.textColor = !isTopThree ? Colors.mainLight.value : Colors.main.value
+        establishmentNamePill.backgroundColor = !isTopThree ? Colors.mainLight.value : Colors.main.value
+    }
+    
     func initUI() {
+        initPill()
+        initAttributeImages()
+    }
+    
+    func initPill() {
         areaNamePill.layer.cornerRadius = areaNamePill.frame.height/2
         establishmentNamePill.layer.cornerRadius = establishmentNamePill.frame.height/2
-        initAttributeImages()
     }
     
     func initAttributeImages() {

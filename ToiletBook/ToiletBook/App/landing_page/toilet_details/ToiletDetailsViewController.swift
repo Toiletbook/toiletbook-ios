@@ -18,7 +18,7 @@ class ToiletDetailsViewController: UIViewController {
     
     func initUi() {
         initNavigationItem()
-
+        
     }
     
     func initNavigationItem() {

@@ -28,6 +28,7 @@
 		5C2FC9A020B9694A00C99D5F /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC99F20B9694A00C99D5F /* Toilet.swift */; };
 		5C2FC9A320B9A19A00C99D5F /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC9A220B9A19A00C99D5F /* Attribute.swift */; };
 		5C2FC9A620B9ABC800C99D5F /* ToiletDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC9A520B9ABC800C99D5F /* ToiletDetailsViewController.swift */; };
+		5C2FC9A920B9B1B000C99D5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC9A820B9B1B000C99D5F /* Colors.swift */; };
 		7FAA5E75A14C3B1DB561D63F /* Pods_ToiletBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48CD078F13F73BBD41A4B42 /* Pods_ToiletBookUITests.framework */; };
 		98677F9FB686EB7B09C256FC /* Pods_ToiletBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DFACD242F0C0CBE1AC8328 /* Pods_ToiletBookTests.framework */; };
 		9AB82BC7BFECBD1058178608 /* Pods_ToiletBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB805785C8F6ADD02CC3DE6 /* Pods_ToiletBook.framework */; };
@@ -79,6 +80,7 @@
 		5C2FC99F20B9694A00C99D5F /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
 		5C2FC9A220B9A19A00C99D5F /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		5C2FC9A520B9ABC800C99D5F /* ToiletDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletDetailsViewController.swift; sourceTree = "<group>"; };
+		5C2FC9A820B9B1B000C99D5F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5D2ED5AF636E01C90105E3E0 /* Pods-ToiletBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToiletBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToiletBook/Pods-ToiletBook.debug.xcconfig"; sourceTree = "<group>"; };
 		69A0022750869C8D4A94FD7F /* Pods-ToiletBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToiletBookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToiletBookTests/Pods-ToiletBookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8C82D03EF803CE230E89EB7E /* Pods-ToiletBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToiletBookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToiletBookTests/Pods-ToiletBookTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		5C2FC94120B91EED00C99D5F /* ToiletBook */ = {
 			isa = PBXGroup;
 			children = (
+				5C2FC9A720B9B1A800C99D5F /* Colors */,
 				5C2FC99720B961C500C99D5F /* Star View */,
 				5C2FC98520B9455900C99D5F /* Table View Cells */,
 				5C2FC97320B9232800C99D5F /* Models */,
@@ -294,6 +297,14 @@
 				5C2FC9A520B9ABC800C99D5F /* ToiletDetailsViewController.swift */,
 			);
 			path = toilet_details;
+			sourceTree = "<group>";
+		};
+		5C2FC9A720B9B1A800C99D5F /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				5C2FC9A820B9B1B000C99D5F /* Colors.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 		6854DF5DDD30B0702470E894 /* Pods */ = {
@@ -539,6 +550,7 @@
 				5C2FC97F20B93B0700C99D5F /* LandingPageViewController.swift in Sources */,
 				5C2FC99020B9566800C99D5F /* ToiletsViewController.swift in Sources */,
 				5C2FC99E20B9693000C99D5F /* ToiletTableViewCell.swift in Sources */,
+				5C2FC9A920B9B1B000C99D5F /* Colors.swift in Sources */,
 				5C2FC97220B9218C00C99D5F /* NetworkManager.swift in Sources */,
 				5C2FC97920B9318700C99D5F /* String+.swift in Sources */,
 				5C2FC97720B9261300C99D5F /* Washroom.swift in Sources */,

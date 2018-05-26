@@ -18,7 +18,7 @@ class ToiletsViewController: UIViewController {
     
     var refreshControl: UIRefreshControl!
     
-    var toilets: [Toilet] = [Toilet(rating: 4.5, isTopThree: true), Toilet(rating: 3.0, isTopThree: true), Toilet(rating: 2.5, isTopThree: false)]
+    var toilets: [Toilet] = [Toilet(rating: 4.5, isTopThree: true), Toilet(rating: 3.0, isTopThree: true), Toilet(rating: 3.0, isTopThree: false), Toilet(rating: 2.5, isTopThree: false)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +77,7 @@ extension ToiletsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ToiletTableViewCell.identifier) as! ToiletTableViewCell
         let toilet = toilets[indexPath.row]
         cell.starView.setRating(toilet.rating, inTopThree: toilet.isTopThree)
+        cell.invertColors(indexPath.row > 2)
         return cell
     }
     
