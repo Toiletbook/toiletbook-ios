@@ -35,6 +35,12 @@ class ToiletTableViewCell: UITableViewCell {
     func set(_ washroom: Washroom) {
     }
     
+    func initUI() {
+        areaNamePill.layer.cornerRadius = areaNamePill.frame.height/2
+        establishmentNamePill.layer.cornerRadius = establishmentNamePill.frame.height/2
+        initAttributeImages()
+    }
+    
     func initAttributeImages() {
         bidetImageView.image = Attribute.bidet.icon
         infantImageView.image = Attribute.infant.icon
@@ -49,7 +55,7 @@ class ToiletTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        initAttributeImages()
+        initUI()
         selectionStyle = .none
     }
     

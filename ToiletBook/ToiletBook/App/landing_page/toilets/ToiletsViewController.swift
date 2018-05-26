@@ -10,6 +10,10 @@ import UIKit
 
 class ToiletsViewController: UIViewController {
 
+    enum SegueId {
+        static let toiletDetailSegue = "toiletDetailSegue"
+    }
+    
     @IBOutlet weak var toiletsTableView: UITableView!
     
     var refreshControl: UIRefreshControl!
@@ -53,9 +57,9 @@ class ToiletsViewController: UIViewController {
 
 extension ToiletsViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: SegueId.toiletDetailSegue, sender: self)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
