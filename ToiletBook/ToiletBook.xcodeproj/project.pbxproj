@@ -20,6 +20,9 @@
 		5C2FC98820B945CC00C99D5F /* LandingPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC98620B945CC00C99D5F /* LandingPageTableViewCell.swift */; };
 		5C2FC98920B945CC00C99D5F /* LandingPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C2FC98720B945CC00C99D5F /* LandingPageTableViewCell.xib */; };
 		5C2FC98B20B947EC00C99D5F /* Establishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC98A20B947EC00C99D5F /* Establishment.swift */; };
+		5C2FC99020B9566800C99D5F /* ToiletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC98F20B9566800C99D5F /* ToiletsViewController.swift */; };
+		5C2FC99320B95C8C00C99D5F /* ToiletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC99120B95C8C00C99D5F /* ToiletTableViewCell.swift */; };
+		5C2FC99420B95C8C00C99D5F /* ToiletTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C2FC99220B95C8C00C99D5F /* ToiletTableViewCell.xib */; };
 		7FAA5E75A14C3B1DB561D63F /* Pods_ToiletBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48CD078F13F73BBD41A4B42 /* Pods_ToiletBookUITests.framework */; };
 		98677F9FB686EB7B09C256FC /* Pods_ToiletBookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DFACD242F0C0CBE1AC8328 /* Pods_ToiletBookTests.framework */; };
 		9AB82BC7BFECBD1058178608 /* Pods_ToiletBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB805785C8F6ADD02CC3DE6 /* Pods_ToiletBook.framework */; };
@@ -63,6 +66,9 @@
 		5C2FC98620B945CC00C99D5F /* LandingPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageTableViewCell.swift; sourceTree = "<group>"; };
 		5C2FC98720B945CC00C99D5F /* LandingPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LandingPageTableViewCell.xib; sourceTree = "<group>"; };
 		5C2FC98A20B947EC00C99D5F /* Establishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Establishment.swift; sourceTree = "<group>"; };
+		5C2FC98F20B9566800C99D5F /* ToiletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletsViewController.swift; sourceTree = "<group>"; };
+		5C2FC99120B95C8C00C99D5F /* ToiletTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletTableViewCell.swift; sourceTree = "<group>"; };
+		5C2FC99220B95C8C00C99D5F /* ToiletTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToiletTableViewCell.xib; sourceTree = "<group>"; };
 		5D2ED5AF636E01C90105E3E0 /* Pods-ToiletBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToiletBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToiletBook/Pods-ToiletBook.debug.xcconfig"; sourceTree = "<group>"; };
 		69A0022750869C8D4A94FD7F /* Pods-ToiletBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToiletBookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToiletBookTests/Pods-ToiletBookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8C82D03EF803CE230E89EB7E /* Pods-ToiletBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToiletBookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToiletBookTests/Pods-ToiletBookTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,8 +208,9 @@
 		5C2FC97D20B93AEF00C99D5F /* landing_page */ = {
 			isa = PBXGroup;
 			children = (
-				5C2FC97E20B93B0700C99D5F /* LandingPageViewController.swift */,
 				5C2FC98020B93B1000C99D5F /* LandingPage.storyboard */,
+				5C2FC98D20B9563C00C99D5F /* landing_page */,
+				5C2FC98E20B9564A00C99D5F /* toilets */,
 			);
 			path = landing_page;
 			sourceTree = "<group>";
@@ -226,10 +233,36 @@
 		5C2FC98520B9455900C99D5F /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5C2FC99520B95C9000C99D5F /* landing_table */,
 				5C2FC98620B945CC00C99D5F /* LandingPageTableViewCell.swift */,
 				5C2FC98720B945CC00C99D5F /* LandingPageTableViewCell.xib */,
+				5C2FC99120B95C8C00C99D5F /* ToiletTableViewCell.swift */,
+				5C2FC99220B95C8C00C99D5F /* ToiletTableViewCell.xib */,
 			);
 			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		5C2FC98D20B9563C00C99D5F /* landing_page */ = {
+			isa = PBXGroup;
+			children = (
+				5C2FC97E20B93B0700C99D5F /* LandingPageViewController.swift */,
+			);
+			path = landing_page;
+			sourceTree = "<group>";
+		};
+		5C2FC98E20B9564A00C99D5F /* toilets */ = {
+			isa = PBXGroup;
+			children = (
+				5C2FC98F20B9566800C99D5F /* ToiletsViewController.swift */,
+			);
+			path = toilets;
+			sourceTree = "<group>";
+		};
+		5C2FC99520B95C9000C99D5F /* landing_table */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = landing_table;
 			sourceTree = "<group>";
 		};
 		6854DF5DDD30B0702470E894 /* Pods */ = {
@@ -363,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C2FC99420B95C8C00C99D5F /* ToiletTableViewCell.xib in Resources */,
 				5C2FC98120B93B1000C99D5F /* LandingPage.storyboard in Resources */,
 				5C2FC94D20B91EEE00C99D5F /* LaunchScreen.storyboard in Resources */,
 				5C2FC98920B945CC00C99D5F /* LandingPageTableViewCell.xib in Resources */,
@@ -471,10 +505,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C2FC97F20B93B0700C99D5F /* LandingPageViewController.swift in Sources */,
+				5C2FC99020B9566800C99D5F /* ToiletsViewController.swift in Sources */,
 				5C2FC97220B9218C00C99D5F /* NetworkManager.swift in Sources */,
 				5C2FC97920B9318700C99D5F /* String+.swift in Sources */,
 				5C2FC97720B9261300C99D5F /* Washroom.swift in Sources */,
 				5C2FC98820B945CC00C99D5F /* LandingPageTableViewCell.swift in Sources */,
+				5C2FC99320B95C8C00C99D5F /* ToiletTableViewCell.swift in Sources */,
 				5C2FC94320B91EED00C99D5F /* AppDelegate.swift in Sources */,
 				5C2FC98B20B947EC00C99D5F /* Establishment.swift in Sources */,
 			);

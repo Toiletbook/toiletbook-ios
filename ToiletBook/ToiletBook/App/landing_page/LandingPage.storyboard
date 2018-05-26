@@ -41,11 +41,43 @@
                     </view>
                     <connections>
                         <outlet property="establishmentsTableView" destination="JWl-Rd-T3I" id="rTt-vi-8RX"/>
+                        <outlet property="searchBar" destination="lIR-20-2BH" id="XRb-Su-jwi"/>
+                        <segue destination="Jjw-jP-nvM" kind="show" identifier="toiletsSegue" id="xLR-8b-Fd8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cx-Ig-yC0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-176.80000000000001" y="175.86206896551727"/>
+        </scene>
+        <!--Toilets View Controller-->
+        <scene sceneID="DKD-bh-UoF">
+            <objects>
+                <viewController storyboardIdentifier="ToiletsViewController" id="Jjw-jP-nvM" customClass="ToiletsViewController" customModule="ToiletBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w7w-US-jiQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KhY-5u-Vjl">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KhY-5u-Vjl" firstAttribute="trailing" secondItem="hA3-nA-p7L" secondAttribute="trailing" id="dff-SP-qKd"/>
+                            <constraint firstItem="hA3-nA-p7L" firstAttribute="bottom" secondItem="KhY-5u-Vjl" secondAttribute="bottom" id="sCf-Yi-IaB"/>
+                            <constraint firstItem="KhY-5u-Vjl" firstAttribute="leading" secondItem="hA3-nA-p7L" secondAttribute="leading" id="vqy-4i-KkN"/>
+                            <constraint firstItem="KhY-5u-Vjl" firstAttribute="top" secondItem="hA3-nA-p7L" secondAttribute="top" id="vzs-NQ-qkm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hA3-nA-p7L"/>
+                    </view>
+                    <connections>
+                        <outlet property="toiletTableView" destination="KhY-5u-Vjl" id="gMf-qu-Cjb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fka-R9-C2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="176"/>
         </scene>
     </scenes>
 </document>

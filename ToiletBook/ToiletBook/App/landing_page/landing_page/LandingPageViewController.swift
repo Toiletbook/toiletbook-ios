@@ -10,7 +10,14 @@ import UIKit
 
 class LandingPageViewController: UIViewController {
 
+    enum SegueId {
+        static let toiletsSegue = "toiletsSegue"
+    }
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var establishmentsTableView: UITableView!
+    
+    var refreshControl: UIRefreshControl!
     
     let establishments: [String] = ["SM Megamall", "Makati Stock Exchange", "A VERY VERY VERY VERY VERY VERY LONG TEXT"]
     
@@ -22,6 +29,7 @@ class LandingPageViewController: UIViewController {
    
     func initUi() {
         initNavigationItem()
+        initSearchBar()
         initEstablishmentsTableView()
     }
     
@@ -29,7 +37,16 @@ class LandingPageViewController: UIViewController {
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo-textual-purple"))
     }
     
+    func initSearchBar() {
+        searchBar.delegate = self
+    }
+    
     func initEstablishmentsTableView() {
+
+        refreshControl = UIRefreshControl(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
+        establishmentsTableView.addSubview(refreshControl)
+        
         establishmentsTableView.delegate = self
         establishmentsTableView.dataSource = self
         
@@ -39,10 +56,22 @@ class LandingPageViewController: UIViewController {
         establishmentsTableView.separatorStyle = .none
     }
     
+    
     func searchButtonAction(_ sender: Any) {
-        
+    }
+    
+    func refreshControlAction(_ sender: UIRefreshControl) {
+        sender.endRefreshing()
     }
 
+}
+
+extension LandingPageViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
 }
 
 extension LandingPageViewController: UITableViewDelegate {
@@ -51,6 +80,9 @@ extension LandingPageViewController: UITableViewDelegate {
         return 160
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: SegueId.toiletsSegue, sender: self)
+    }
     
 }
 
