@@ -9,6 +9,14 @@
 import Alamofire
 import UIKit
 
+extension Int {
+    
+    var bool: Bool {
+        return !(self == 0)
+    }
+    
+}
+
 class ToiletsViewController: UIViewController {
 
     enum SegueId {
@@ -99,6 +107,37 @@ extension ToiletsViewController: UITableViewDataSource {
         cell.establishmentNameLabel.text = washroom.establishment_name
         
         cell.starView.setRating(washroom.general_rating, inTopThree: isTopThree)
+        
+        // setup attributes:
+        cell.genderImageView.image = {
+            
+            if washroom.gender_is_male_only.bool {
+                return #imageLiteral(resourceName: "atr-gender-male")
+            }
+            
+            if washroom.gender_is_female_only.bool {
+                return #imageLiteral(resourceName: "atr-gender-female")
+            }
+            
+            return #imageLiteral(resourceName: "atr-gender-unisex")
+        }()
+            
+        cell.paymentImageView.image = {
+            
+            if washroom.is_free.bool {
+                return #imageLiteral(resourceName: "atr-payment-free")
+            }
+            
+            return #imageLiteral(resourceName: "atr-payment-paid")
+        }()
+        
+        cell.bidetImageView.alpha = washroom.has_bidet.bool ? 1.0 : 0.30
+        cell.infantImageView.alpha = washroom.has_diaper_station.bool ? 1.0 : 0.30
+        cell.pwdImageView.alpha = washroom.is_pwd_friendly.bool ? 1.0 : 0.30
+        cell.tissueImageView.alpha = washroom.has_tissues.bool ? 1.0 : 0.30
+        cell.vendorImageView.alpha = washroom.has_vending_machine.bool ? 1.0 : 0.30
+        cell.waterImageView.alpha = washroom.has_water.bool ? 1.0 : 0.30
+        
         
         return cell
     }
