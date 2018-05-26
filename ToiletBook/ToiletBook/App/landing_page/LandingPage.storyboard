@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VhP-WY-ZoW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Landing Page View Controller-->
+        <scene sceneID="OEb-cX-nan">
+            <objects>
+                <viewController id="VhP-WY-ZoW" customClass="LandingPageViewController" customModule="ToiletBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QEm-X0-xuv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JWl-Rd-T3I">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lIR-20-2BH">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JWl-Rd-T3I" firstAttribute="top" secondItem="lIR-20-2BH" secondAttribute="bottom" id="EvW-IP-3eu"/>
+                            <constraint firstItem="lIR-20-2BH" firstAttribute="top" secondItem="XHa-M5-DEb" secondAttribute="top" id="KXc-Gs-LfR"/>
+                            <constraint firstItem="XHa-M5-DEb" firstAttribute="trailing" secondItem="JWl-Rd-T3I" secondAttribute="trailing" id="Lkp-rH-48c"/>
+                            <constraint firstItem="lIR-20-2BH" firstAttribute="leading" secondItem="XHa-M5-DEb" secondAttribute="leading" id="gvO-wr-cD6"/>
+                            <constraint firstItem="XHa-M5-DEb" firstAttribute="bottom" secondItem="JWl-Rd-T3I" secondAttribute="bottom" id="lI5-ig-DiH"/>
+                            <constraint firstItem="JWl-Rd-T3I" firstAttribute="leading" secondItem="XHa-M5-DEb" secondAttribute="leading" id="lTO-fj-oTb"/>
+                            <constraint firstItem="lIR-20-2BH" firstAttribute="trailing" secondItem="XHa-M5-DEb" secondAttribute="trailing" id="pw4-JV-0fw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XHa-M5-DEb"/>
+                    </view>
+                    <connections>
+                        <outlet property="establishmentsTableView" destination="JWl-Rd-T3I" id="rTt-vi-8RX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Cx-Ig-yC0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-176.80000000000001" y="175.86206896551727"/>
+        </scene>
+    </scenes>
+</document>

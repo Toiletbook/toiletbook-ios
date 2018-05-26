@@ -11,11 +11,6 @@ import AlamofireObjectMapper
 import Foundation
 import ObjectMapper
 
-// 3 endpoints
-// - washrooms get
-// - washroom ( id ) info
-// - vist ( id )
-
 typealias GetWashroomsHandler = (([Washroom]) -> Void)
 
 class NetworkManager {
