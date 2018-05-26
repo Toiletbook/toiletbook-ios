@@ -13,10 +13,24 @@ import ObjectMapper
 
 typealias GetWashroomsHandler = (([Washroom]) -> Void)
 
+//Route::get('/washrooms', 'WashroomController@index');
+//Route::get('/washrooms/{id}', 'WashroomController@show');
+//Route::post('/washrooms', 'WashroomController@store');
+//
+//Route::put('/washrooms/{id}', 'WashroomController@update');
+//Route::delete('/washrooms/{id}', 'WashroomController@destroy');
+//
+//Route::post('/washrooms/{id}/visit', 'WashroomController@visit');
+//
+//Route::get('/areas', 'AreaController@index');
+//Route::get('/areas/{id}', 'AreaController@show');
+//
+//Route::get('/establishments', 'EstablishmentController@index');
+//Route::get('/establishments/{id}', 'EstablishmentController@show');
+
 class NetworkManager {
     
     static let instance = NetworkManager()
-    
     
     let baseUrl: URL =  URL.init(string: "http://toiletbook.space")!
     
