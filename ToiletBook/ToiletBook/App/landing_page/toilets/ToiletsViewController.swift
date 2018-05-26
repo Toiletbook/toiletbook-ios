@@ -10,7 +10,11 @@ import UIKit
 
 class ToiletsViewController: UIViewController {
 
-    @IBOutlet weak var toiletTableView: UITableView!
+    @IBOutlet weak var toiletsTableView: UITableView!
+    
+    var refreshControl: UIRefreshControl!
+    
+    var toilets: [String] = ["A", "B", "C"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +24,54 @@ class ToiletsViewController: UIViewController {
     
     func initUi() {
         initNavigationItem()
+        initToiletsTableView()
+    }
+    
+    func initToiletsTableView() {
+        refreshControl = UIRefreshControl(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
+        toiletsTableView.addSubview(refreshControl)
+        
+        toiletsTableView.delegate = self
+        toiletsTableView.dataSource = self
+        
+        let nib = UINib(nibName: ToiletTableViewCell.identifier, bundle: nil)
+        toiletsTableView.register(nib, forCellReuseIdentifier: ToiletTableViewCell.identifier)
+        
+        toiletsTableView.separatorStyle = .none
     }
     
     func initNavigationItem() {
         navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo-textual-purple"))
     }
+    
+    func refreshControlAction(_ sender: UIRefreshControl) {
+        sender.endRefreshing()
+    }
 
+}
+
+extension ToiletsViewController: UITableViewDelegate {
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+}
+
+extension ToiletsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return toilets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ToiletTableViewCell.identifier) as! ToiletTableViewCell
+        return cell
+    }
+    
 }

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,12 +19,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Establishment Name}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Rm-rW-sJV">
-                        <rect key="frame" x="32" y="51.5" width="224" height="33"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiv-sG-xap">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,15 +26,21 @@
                             <constraint firstAttribute="height" constant="2" id="0nA-EZ-stR"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Establishment Name}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Rm-rW-sJV">
+                        <rect key="frame" x="16" y="51" width="240" height="33"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" red="0.38823529411764707" green="0.34901960784313724" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="aiv-sG-xap" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1NU-y7-Vi8"/>
                     <constraint firstItem="6Rm-rW-sJV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2Gr-4s-l2a"/>
-                    <constraint firstItem="6Rm-rW-sJV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="H2I-ex-kZn"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="6Rm-rW-sJV" secondAttribute="trailing" constant="48" id="Kgc-g3-bHb"/>
+                    <constraint firstItem="6Rm-rW-sJV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="3eK-3H-5bJ"/>
                     <constraint firstAttribute="trailing" secondItem="aiv-sG-xap" secondAttribute="trailing" id="Y23-3Q-ddO"/>
                     <constraint firstItem="aiv-sG-xap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kxS-l4-mFA"/>
+                    <constraint firstAttribute="trailing" secondItem="6Rm-rW-sJV" secondAttribute="trailing" constant="64" id="yl6-PQ-htf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

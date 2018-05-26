@@ -72,7 +72,7 @@
                         <viewLayoutGuide key="safeArea" id="hA3-nA-p7L"/>
                     </view>
                     <connections>
-                        <outlet property="toiletTableView" destination="KhY-5u-Vjl" id="gMf-qu-Cjb"/>
+                        <outlet property="toiletsTableView" destination="KhY-5u-Vjl" id="gMf-qu-Cjb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fka-R9-C2y" userLabel="First Responder" sceneMemberID="firstResponder"/>
