@@ -6,8 +6,11 @@
 //  Copyright © 2018 Toilet Book Team. All rights reserved.
 //
 
-import UIKit
+import Alamofire
 import CoreLocation
+import UIKit
+
+
 
 class LandingPageViewController: UIViewController {
 
@@ -18,11 +21,13 @@ class LandingPageViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var establishmentsTableView: UITableView!
     @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var findNearbyWashroomsButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var refreshControl: UIRefreshControl!
     
-    let establishments: [String] = ["SM Megamall", "Makati Stock Exchange", "A VERY VERY VERY VERY VERY VERY LONG TEXT"]
+    var selectedEstablishment: Establishment!
+    var establishments: [Establishment] = []
     
     // MARK: - Properties for Location Handling
     var locationManager: CLLocationManager!
@@ -48,11 +53,15 @@ class LandingPageViewController: UIViewController {
         initUi()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        overlayView.isHidden = false
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.overlayView.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
+            self.overlayView.alpha = 1.0
+        }) { (completed) in
+        }
     }
-    
+
     func initLocationManager() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -64,6 +73,7 @@ class LandingPageViewController: UIViewController {
         initNavigationItem()
         initSearchBar()
         initEstablishmentsTableView()
+        findNearbyWashroomsButton.layer.cornerRadius = findNearbyWashroomsButton.frame.height/2
     }
     
     func initNavigationItem() {
@@ -91,6 +101,16 @@ class LandingPageViewController: UIViewController {
 
 }
 
+extension LandingPageViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueId.toiletsSegue, let dest = segue.destination as? ToiletsViewController {
+            dest.establishmentId = String(selectedEstablishment.id)
+        }
+    }
+    
+}
+
 extension LandingPageViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -106,6 +126,7 @@ extension LandingPageViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedEstablishment = establishments[indexPath.row]
         performSegue(withIdentifier: SegueId.toiletsSegue, sender: self)
     }
     
@@ -119,7 +140,8 @@ extension LandingPageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LandingPageTableViewCell.identifier) as! LandingPageTableViewCell
-        cell.establishmentNameLabel.text = establishments[indexPath.row]
+        let establishment = establishments[indexPath.row]
+        cell.establishmentNameLabel.text = establishment.name
         return cell
     }
     
@@ -134,12 +156,20 @@ extension LandingPageViewController: CLLocationManagerDelegate {
     }
     
     func taskWhenLocationIsNull() {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.overlayView.alpha = 0.0
-        }) { (completed) in
-            self.overlayView.isHidden = true
-            self.overlayView.alpha = 1.0
+        
+        NetworkManager.instance.requestArray(endpoint: NetworkManager.Endpoints.establishments) { (resp: DataResponse<[Establishment]>) in
+            DispatchQueue.main.async {
+                self.establishments = resp.result.value!
+                self.establishmentsTableView.reloadData()
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.overlayView.alpha = 0.0
+                }) { (completed) in
+                    self.overlayView.isHidden = true
+                }
+            }
         }
+    
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

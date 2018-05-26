@@ -25,7 +25,6 @@
 		5C2FC99A20B9627900C99D5F /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC99920B9627900C99D5F /* StarView.swift */; };
 		5C2FC99C20B9632800C99D5F /* StarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C2FC99B20B9632800C99D5F /* StarView.xib */; };
 		5C2FC99E20B9693000C99D5F /* ToiletTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC99D20B9692F00C99D5F /* ToiletTableViewCell.swift */; };
-		5C2FC9A020B9694A00C99D5F /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC99F20B9694A00C99D5F /* Toilet.swift */; };
 		5C2FC9A320B9A19A00C99D5F /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC9A220B9A19A00C99D5F /* Attribute.swift */; };
 		5C2FC9A620B9ABC800C99D5F /* ToiletDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC9A520B9ABC800C99D5F /* ToiletDetailsViewController.swift */; };
 		5C2FC9A920B9B1B000C99D5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FC9A820B9B1B000C99D5F /* Colors.swift */; };
@@ -77,7 +76,6 @@
 		5C2FC99920B9627900C99D5F /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		5C2FC99B20B9632800C99D5F /* StarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarView.xib; sourceTree = "<group>"; };
 		5C2FC99D20B9692F00C99D5F /* ToiletTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToiletTableViewCell.swift; sourceTree = "<group>"; };
-		5C2FC99F20B9694A00C99D5F /* Toilet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
 		5C2FC9A220B9A19A00C99D5F /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 		5C2FC9A520B9ABC800C99D5F /* ToiletDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToiletDetailsViewController.swift; sourceTree = "<group>"; };
 		5C2FC9A820B9B1B000C99D5F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 			children = (
 				5C2FC97620B9261300C99D5F /* Washroom.swift */,
 				5C2FC98A20B947EC00C99D5F /* Establishment.swift */,
-				5C2FC99F20B9694A00C99D5F /* Toilet.swift */,
 				5C2FC9A220B9A19A00C99D5F /* Attribute.swift */,
 			);
 			path = Models;
@@ -555,7 +552,6 @@
 				5C2FC97920B9318700C99D5F /* String+.swift in Sources */,
 				5C2FC97720B9261300C99D5F /* Washroom.swift in Sources */,
 				5C2FC9A320B9A19A00C99D5F /* Attribute.swift in Sources */,
-				5C2FC9A020B9694A00C99D5F /* Toilet.swift in Sources */,
 				5C2FC98820B945CC00C99D5F /* LandingPageTableViewCell.swift in Sources */,
 				5C2FC94320B91EED00C99D5F /* AppDelegate.swift in Sources */,
 				5C2FC99A20B9627900C99D5F /* StarView.swift in Sources */,

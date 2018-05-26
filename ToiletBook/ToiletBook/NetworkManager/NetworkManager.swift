@@ -11,8 +11,6 @@ import AlamofireObjectMapper
 import Foundation
 import ObjectMapper
 
-typealias GetWashroomsHandler = (([Washroom]) -> Void)
-
 //Route::get('/washrooms', 'WashroomController@index');
 //Route::get('/washrooms/{id}', 'WashroomController@show');
 //Route::post('/washrooms', 'WashroomController@store');
@@ -32,33 +30,80 @@ class NetworkManager {
     
     static let instance = NetworkManager()
     
-    let baseUrl: URL =  URL.init(string: "http://toiletbook.space")!
+    let baseUrl: String = "https://toiletbook.space/api/"
     
-    let baseHeader: HTTPHeaders = [:]
+    let baseHeader: HTTPHeaders = ["Accept": "application/json", "Content-Type":"application/json"]
     
     enum Endpoints {
+        // washrooms
+//        case getWashrooms
+        case getEstablishmentWashrooms(establishmentId: String)
+        case getWashroom(id: String)
+        case postWashrooms
+        case updateWashroom(id: String)
+        case deleteWashroom(id: String)
         
-    }
-    
-    func getWashrooms(_ handler: @escaping GetWashroomsHandler) {
-        let request = Alamofire.request(baseUrl, method: .get, parameters: [:], encoding: JSONEncoding.default, headers: baseHeader)
+        // review
+        case visitWashroom(id: String)
         
-        request.responseArray { (resp: DataResponse<[Washroom]>) in
-            switch resp.result {
-            case .success(let washrooms):
-                handler(washrooms)
-            case .failure(let error):
-                error.localizedDescription.errorPrint()
+//        // areas
+//        case getAreas
+//        case getArea(id: String)
+        
+        // establishments
+        case establishments
+        case establishment(id: String)
+        
+        var path: String {
+            switch self {
+            case .getEstablishmentWashrooms(let id):
+                return "establishments/\(id)/washrooms"
+            case .getWashroom(let id), .updateWashroom(let id), .deleteWashroom(let id):
+                return "washrooms/\(id)"
+            case .postWashrooms:
+                return "washrooms"
+            case .visitWashroom(let id):
+                return "washrooms/\(id)/visit"
+            case .establishments:
+                return "establishments"
+            case .establishment(let id):
+                return "establishments/\(id)"
+            }
+        }
+        
+        var method: HTTPMethod {
+            switch self {
+            case .getEstablishmentWashrooms,
+                 .getWashroom,
+                 .establishments,
+                 .establishment:
+                return .get
+            case .postWashrooms,
+                 .visitWashroom:
+                return .post
+            case .updateWashroom:
+                return .put
+            case .deleteWashroom:
+                return .delete
             }
         }
         
     }
     
-    func getWashroomInfo(withId id: Int) {
-        
+    
+    func request<U: BaseMappable>(endpoint: Endpoints, handler: @escaping ((DataResponse<U>) -> Void) ) {
+    
+        let url = URL(string: baseUrl + endpoint.path)!
+        let request = Alamofire.request(url, method: endpoint.method, parameters: [:], encoding: JSONEncoding.default, headers: baseHeader)
+        request.responseObject(completionHandler: handler)
+    
     }
     
-    func postVisitFeedback(toWashroomId id: Int) {
+    func requestArray<U: BaseMappable>(endpoint: Endpoints, handler: @escaping ((DataResponse<[U]>) -> Void) ) {
+        
+        let url = URL(string: baseUrl + endpoint.path)!
+        let request = Alamofire.request(url, method: endpoint.method, parameters: [:], encoding: JSONEncoding.default, headers: baseHeader)
+        request.responseArray(completionHandler: handler)
         
     }
     

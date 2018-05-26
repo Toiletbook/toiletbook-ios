@@ -6,6 +6,7 @@
 //  Copyright © 2018 Toilet Book Team. All rights reserved.
 //
 
+import Alamofire
 import UIKit
 
 class ToiletsViewController: UIViewController {
@@ -16,14 +17,28 @@ class ToiletsViewController: UIViewController {
     
     @IBOutlet weak var toiletsTableView: UITableView!
     
+    var establishmentId: String!
     var refreshControl: UIRefreshControl!
     
-    var toilets: [Toilet] = [Toilet(rating: 4.5, isTopThree: true), Toilet(rating: 3.0, isTopThree: true), Toilet(rating: 3.0, isTopThree: false), Toilet(rating: 2.5, isTopThree: false)]
+    var washrooms: [Washroom] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initUi()
+        
+        print(establishmentId)
+        
+        NetworkManager.instance.requestArray(endpoint: NetworkManager.Endpoints.getEstablishmentWashrooms(establishmentId: establishmentId)) { (resp: DataResponse<[Washroom]>) in
+            
+            DispatchQueue.main.async {
+                self.washrooms = resp.result.value!
+                print(self.washrooms)
+                self.toiletsTableView.reloadData()
+            }
+            
+        }
+        
     }
     
     func initUi() {
@@ -70,14 +85,23 @@ extension ToiletsViewController: UITableViewDelegate {
 extension ToiletsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return toilets.count
+        return washrooms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ToiletTableViewCell.identifier) as! ToiletTableViewCell
-        let toilet = toilets[indexPath.row]
-        cell.starView.setRating(toilet.rating, inTopThree: toilet.isTopThree)
-        cell.invertColors(indexPath.row > 2)
+        let washroom = washrooms[indexPath.row]
+        let isTopThree = indexPath.row > 2
+        cell.invertColors(isTopThree)
+        cell.name.text = washroom.name
+        cell.locationDescription.text = washroom.location_description
+        
+        cell.areaNameLabel.text = washroom.area_name
+        print(washroom.area_name)
+        cell.establishmentNameLabel.text = washroom.establishment_name
+        
+        cell.starView.setRating(washroom.general_rating, inTopThree: !isTopThree)
+        
         return cell
     }
     
