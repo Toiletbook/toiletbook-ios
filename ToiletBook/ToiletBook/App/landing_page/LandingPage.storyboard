@@ -138,15 +138,96 @@
             <objects>
                 <viewController id="SDA-5A-kBo" customClass="ToiletDetailsViewController" customModule="ToiletBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sLK-QO-7G6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Tt-wI-BC5">
+                                <rect key="frame" x="0.0" y="10" width="375" height="1200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULU-wD-Z9e">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yN-Ci-EoO">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="lK4-GR-ZSh"/>
+                                                </constraints>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info-map-bg" translatesAutoresizingMaskIntoConstraints="NO" id="8iQ-wB-8Hh">
+                                                <rect key="frame" x="0.0" y="150" width="375" height="208"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="208" id="xdl-gn-eah"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRe-gg-2w4">
+                                                <rect key="frame" x="0.0" y="358" width="375" height="216"/>
+                                                <color key="backgroundColor" red="0.38823529410000002" green="0.34901960780000002" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="216" id="fIh-nv-Y35"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTE-23-Gb8">
+                                                <rect key="frame" x="159" y="214" width="56" height="56"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="info-map-button-con"/>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COX-mn-v1a">
+                                                <rect key="frame" x="0.0" y="574" width="375" height="410"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="410" id="hCa-dw-nUa"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="COX-mn-v1a" firstAttribute="leading" secondItem="ULU-wD-Z9e" secondAttribute="leading" id="4gp-uo-iLP"/>
+                                            <constraint firstItem="6yN-Ci-EoO" firstAttribute="leading" secondItem="ULU-wD-Z9e" secondAttribute="leading" id="EXV-eO-a0G"/>
+                                            <constraint firstAttribute="bottom" secondItem="COX-mn-v1a" secondAttribute="bottom" constant="216" id="FNJ-gr-kPW"/>
+                                            <constraint firstItem="8iQ-wB-8Hh" firstAttribute="leading" secondItem="ULU-wD-Z9e" secondAttribute="leading" id="MA3-dZ-Nr2"/>
+                                            <constraint firstItem="8iQ-wB-8Hh" firstAttribute="top" secondItem="6yN-Ci-EoO" secondAttribute="bottom" id="Qym-Pq-Rfi"/>
+                                            <constraint firstAttribute="height" constant="1200" id="S1M-zr-92h"/>
+                                            <constraint firstItem="SRe-gg-2w4" firstAttribute="top" secondItem="8iQ-wB-8Hh" secondAttribute="bottom" id="W3r-q8-dp8"/>
+                                            <constraint firstItem="6yN-Ci-EoO" firstAttribute="top" secondItem="ULU-wD-Z9e" secondAttribute="top" id="ZlX-5D-Fjf"/>
+                                            <constraint firstAttribute="trailing" secondItem="6yN-Ci-EoO" secondAttribute="trailing" id="aSw-6P-tLh"/>
+                                            <constraint firstItem="COX-mn-v1a" firstAttribute="top" secondItem="SRe-gg-2w4" secondAttribute="bottom" id="i3c-wR-2Rb"/>
+                                            <constraint firstItem="SRe-gg-2w4" firstAttribute="leading" secondItem="ULU-wD-Z9e" secondAttribute="leading" id="j50-Zc-52W"/>
+                                            <constraint firstAttribute="trailing" secondItem="8iQ-wB-8Hh" secondAttribute="trailing" id="k7h-UN-Mpi"/>
+                                            <constraint firstAttribute="trailing" secondItem="SRe-gg-2w4" secondAttribute="trailing" id="mdL-9r-dyZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="COX-mn-v1a" secondAttribute="trailing" id="pLk-9m-MQ4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ULU-wD-Z9e" firstAttribute="top" secondItem="0Tt-wI-BC5" secondAttribute="top" id="5G6-N5-1h8"/>
+                                    <constraint firstAttribute="bottom" secondItem="ULU-wD-Z9e" secondAttribute="bottom" id="72w-VB-XgD"/>
+                                    <constraint firstAttribute="trailing" secondItem="ULU-wD-Z9e" secondAttribute="trailing" id="B3V-Oa-9fI"/>
+                                    <constraint firstItem="ULU-wD-Z9e" firstAttribute="leading" secondItem="0Tt-wI-BC5" secondAttribute="leading" id="U1j-bG-UfD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0Tt-wI-BC5" firstAttribute="centerX" secondItem="cZ7-lb-2AB" secondAttribute="centerX" id="9Me-WJ-Axv"/>
+                            <constraint firstItem="ULU-wD-Z9e" firstAttribute="width" secondItem="sLK-QO-7G6" secondAttribute="width" id="9wI-n4-lTT"/>
+                            <constraint firstItem="0Tt-wI-BC5" firstAttribute="centerY" secondItem="cZ7-lb-2AB" secondAttribute="centerY" id="IRj-t5-M8L"/>
+                            <constraint firstItem="0Tt-wI-BC5" firstAttribute="leading" secondItem="cZ7-lb-2AB" secondAttribute="leading" id="OfP-Nc-NDF"/>
+                            <constraint firstItem="0Tt-wI-BC5" firstAttribute="width" secondItem="sLK-QO-7G6" secondAttribute="width" id="QcD-fn-DAZ"/>
+                            <constraint firstItem="0Tt-wI-BC5" firstAttribute="height" secondItem="sLK-QO-7G6" secondAttribute="height" id="fdu-Ee-dsf"/>
+                            <constraint firstItem="0Tt-wI-BC5" firstAttribute="trailing" secondItem="cZ7-lb-2AB" secondAttribute="trailing" id="nIN-Qi-BhL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cZ7-lb-2AB"/>
                     </view>
+                    <size key="freeformSize" width="375" height="1200"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mu-qL-839" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652" y="176"/>
+            <point key="canvasLocation" x="1700" y="174.51274362818592"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="info-map-bg" width="752" height="417"/>
+        <image name="info-map-button-con" width="200" height="200"/>
+    </resources>
 </document>
