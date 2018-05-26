@@ -28,14 +28,13 @@ class ToiletsViewController: UIViewController {
     var establishmentId: String?
     var refreshControl: UIRefreshControl!
     
+    var selectedWashroom: Washroom!
     var washrooms: [Washroom] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initUi()
-        
-        
         
         guard let id = establishmentId else {
             NetworkManager.instance.requestArray(endpoint: NetworkManager.Endpoints.getWashrooms) { (resp: DataResponse<[Washroom]>) in
@@ -89,9 +88,19 @@ class ToiletsViewController: UIViewController {
 
 }
 
+extension ToiletsViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueId.toiletDetailSegue, let dest = segue.destination as? ToiletDetailsViewController {
+            dest.washroom = selectedWashroom
+        }
+    }
+}
+
 extension ToiletsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedWashroom = washrooms[indexPath.row]
         self.performSegue(withIdentifier: SegueId.toiletDetailSegue, sender: self)
     }
     

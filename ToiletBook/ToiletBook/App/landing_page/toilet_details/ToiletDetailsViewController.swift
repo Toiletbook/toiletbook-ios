@@ -10,10 +10,13 @@ import UIKit
 
 class ToiletDetailsViewController: UIViewController {
 
+    var washroom: Washroom!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initUi()
+        print(washroom.toJSONString()!)
     }
     
     func initUi() {
