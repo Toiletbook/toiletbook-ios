@@ -35,8 +35,16 @@ class ToiletsViewController: UIViewController {
         // Do any additional setup after loading the view.
         initUi()
         
+        
+        
         guard let id = establishmentId else {
-            
+            NetworkManager.instance.requestArray(endpoint: NetworkManager.Endpoints.getWashrooms) { (resp: DataResponse<[Washroom]>) in
+                DispatchQueue.main.async {
+                    self.washrooms = resp.result.value!
+                    print(self.washrooms)
+                    self.toiletsTableView.reloadData()
+                }
+            }
             return
         }
         

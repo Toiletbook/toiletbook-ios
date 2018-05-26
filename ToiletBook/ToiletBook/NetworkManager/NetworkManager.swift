@@ -36,7 +36,7 @@ class NetworkManager {
     
     enum Endpoints {
         // washrooms
-//        case getWashrooms
+        case getWashrooms
         case getEstablishmentWashrooms(establishmentId: String)
         case getWashroom(id: String)
         case postWashrooms
@@ -68,6 +68,8 @@ class NetworkManager {
                 return "establishments"
             case .establishment(let id):
                 return "establishments/\(id)"
+            case .getWashrooms:
+                return "washrooms"
             }
         }
         
@@ -76,7 +78,8 @@ class NetworkManager {
             case .getEstablishmentWashrooms,
                  .getWashroom,
                  .establishments,
-                 .establishment:
+                 .establishment,
+                 .getWashrooms:
                 return .get
             case .postWashrooms,
                  .visitWashroom:
