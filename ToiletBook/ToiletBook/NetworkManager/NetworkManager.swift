@@ -36,6 +36,9 @@ class NetworkManager {
     
     let baseHeader: HTTPHeaders = [:]
     
+    enum Endpoints {
+        
+    }
     
     func getWashrooms(_ handler: @escaping GetWashroomsHandler) {
         let request = Alamofire.request(baseUrl, method: .get, parameters: [:], encoding: JSONEncoding.default, headers: baseHeader)
