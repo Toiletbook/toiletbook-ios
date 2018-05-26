@@ -18,29 +18,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JWl-Rd-T3I">
-                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lIR-20-2BH">
                                 <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JWl-Rd-T3I">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-Cb-Ioe">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="64i-QQ-ghw">
+                                        <rect key="frame" x="16" y="272.5" width="343" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuy-BI-c8i">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="45"/>
+                                                <color key="backgroundColor" red="0.38823529410000002" green="0.34901960780000002" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                                <state key="normal" title="Find Nearby Washrooms!">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="findWashroomsButtonAction:" destination="VhP-WY-ZoW" eventType="touchUpInside" id="8oF-da-Q7p"/>
+                                                </connections>
+                                            </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4lK-Rb-xgr">
+                                                <rect key="frame" x="153" y="-348.5" width="37" height="0.0"/>
+                                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </activityIndicatorView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="yuy-BI-c8i" secondAttribute="trailing" id="Hh1-dk-kIM"/>
+                                            <constraint firstItem="yuy-BI-c8i" firstAttribute="leading" secondItem="64i-QQ-ghw" secondAttribute="leading" id="oWp-Tr-hsP"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="64i-QQ-ghw" firstAttribute="centerX" secondItem="UOu-Cb-Ioe" secondAttribute="centerX" id="20I-xv-mkx"/>
+                                    <constraint firstItem="64i-QQ-ghw" firstAttribute="leading" secondItem="UOu-Cb-Ioe" secondAttribute="leading" constant="16" id="ZPa-5Q-UDb"/>
+                                    <constraint firstItem="64i-QQ-ghw" firstAttribute="centerY" secondItem="UOu-Cb-Ioe" secondAttribute="centerY" id="g7F-q4-Stb"/>
+                                    <constraint firstAttribute="trailing" secondItem="64i-QQ-ghw" secondAttribute="trailing" constant="16" id="tAB-OV-bzh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="UOu-Cb-Ioe" firstAttribute="width" secondItem="JWl-Rd-T3I" secondAttribute="width" id="1e7-9Y-AYD"/>
+                            <constraint firstItem="UOu-Cb-Ioe" firstAttribute="height" secondItem="JWl-Rd-T3I" secondAttribute="height" id="CAW-ZS-ayh"/>
+                            <constraint firstItem="XHa-M5-DEb" firstAttribute="bottom" secondItem="JWl-Rd-T3I" secondAttribute="bottom" id="CEz-oq-6dV"/>
                             <constraint firstItem="JWl-Rd-T3I" firstAttribute="top" secondItem="lIR-20-2BH" secondAttribute="bottom" id="EvW-IP-3eu"/>
                             <constraint firstItem="lIR-20-2BH" firstAttribute="top" secondItem="XHa-M5-DEb" secondAttribute="top" id="KXc-Gs-LfR"/>
                             <constraint firstItem="XHa-M5-DEb" firstAttribute="trailing" secondItem="JWl-Rd-T3I" secondAttribute="trailing" id="Lkp-rH-48c"/>
+                            <constraint firstItem="UOu-Cb-Ioe" firstAttribute="centerY" secondItem="JWl-Rd-T3I" secondAttribute="centerY" id="UTd-u5-uih"/>
                             <constraint firstItem="lIR-20-2BH" firstAttribute="leading" secondItem="XHa-M5-DEb" secondAttribute="leading" id="gvO-wr-cD6"/>
-                            <constraint firstItem="XHa-M5-DEb" firstAttribute="bottom" secondItem="JWl-Rd-T3I" secondAttribute="bottom" id="lI5-ig-DiH"/>
                             <constraint firstItem="JWl-Rd-T3I" firstAttribute="leading" secondItem="XHa-M5-DEb" secondAttribute="leading" id="lTO-fj-oTb"/>
                             <constraint firstItem="lIR-20-2BH" firstAttribute="trailing" secondItem="XHa-M5-DEb" secondAttribute="trailing" id="pw4-JV-0fw"/>
+                            <constraint firstItem="UOu-Cb-Ioe" firstAttribute="centerX" secondItem="JWl-Rd-T3I" secondAttribute="centerX" id="xWr-ps-Bm5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XHa-M5-DEb"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="4lK-Rb-xgr" id="XJQ-1H-Mdo"/>
                         <outlet property="establishmentsTableView" destination="JWl-Rd-T3I" id="rTt-vi-8RX"/>
+                        <outlet property="overlayView" destination="UOu-Cb-Ioe" id="waV-eH-2CI"/>
                         <outlet property="searchBar" destination="lIR-20-2BH" id="XRb-Su-jwi"/>
                         <segue destination="Jjw-jP-nvM" kind="show" identifier="toiletsSegue" id="xLR-8b-Fd8"/>
                     </connections>

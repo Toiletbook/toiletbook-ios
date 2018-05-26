@@ -17,6 +17,8 @@ class LandingPageViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var establishmentsTableView: UITableView!
+    @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var refreshControl: UIRefreshControl!
     
@@ -27,16 +29,14 @@ class LandingPageViewController: UIViewController {
     
     // MARK: - Action
     
-    func searchButtonAction(_ sender: Any) {
+    
+    @IBAction func findWashroomsButtonAction(_ sender: Any) {
+        activityIndicator.isHidden = false
         locationManager.requestLocation()
     }
     
     func refreshControlAction(_ sender: UIRefreshControl) {
         sender.endRefreshing()
-    }
-
-    func ultimateButtonAction(_sender: Any) {
-        locationManager.requestLocation()
     }
     
     // MARK: - Init
@@ -46,6 +46,11 @@ class LandingPageViewController: UIViewController {
         // Do any additional setup after loading the view.
         initLocationManager()
         initUi()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        overlayView.isHidden = false
     }
     
     func initLocationManager() {
@@ -59,7 +64,6 @@ class LandingPageViewController: UIViewController {
         initNavigationItem()
         initSearchBar()
         initEstablishmentsTableView()
-        initUltimateButtonOverlay()
     }
     
     func initNavigationItem() {
@@ -83,37 +87,6 @@ class LandingPageViewController: UIViewController {
         establishmentsTableView.register(nib, forCellReuseIdentifier: LandingPageTableViewCell.identifier)
         
         establishmentsTableView.separatorStyle = .none
-    }
-    
-    // MARK: - Ultimate View
-    
-    var ultView: UIView!
-    var ultButton: UIButton!
-    
-    func initUltimateButtonOverlay() {
-        
-        ultView = UIView(frame: UIScreen.main.bounds)
-        ultView.backgroundColor = UIColor.white
-        
-        ultButton = UIButton(type: .custom)
-        ultButton.addTarget(self, action: #selector(ultimateButtonAction(_sender:)), for: .touchUpInside)
-        
-        ultButton.backgroundColor = Colors.main.value
-        
-        ultButton.setTitle("FIND NEARBY WASHROOMS", for: .normal)
-        ultButton.titleLabel?.textAlignment = .center
-        ultButton.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 20)
-        ultButton.setTitleColor(UIColor.white, for: .normal)
-        ultButton.setTitleColor(UIColor.white.withAlphaComponent(0.50), for: .highlighted)
-        
-        ultView.addSubview(ultButton)
-        ultButton.translatesAutoresizingMaskIntoConstraints = false
-        ultButton.centerXAnchor.constraint(equalTo: ultView.centerXAnchor).isActive = true
-        ultButton.centerYAnchor.constraint(equalTo: ultView.centerYAnchor).isActive = true
-        ultButton.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        ultButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 0.85).isActive = true
-        
-        UIApplication.shared.keyWindow?.addSubview(ultView)
     }
 
 }
@@ -156,16 +129,23 @@ extension LandingPageViewController: UITableViewDataSource {
 extension LandingPageViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        ultView.removeFromSuperview()
+        activityIndicator.isHidden = true
+        
         if let location = locations.first {
+            
             print(location.coordinate)
-            // do a query here
             performSegue(withIdentifier: SegueId.toiletsSegue, sender: self)
+            
+        } else {
+            
+            overlayView.isHidden = true
+            // request reload table here
+            
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        ultView.removeFromSuperview()
+        activityIndicator.isHidden = true
     }
     
 }
