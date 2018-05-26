@@ -95,12 +95,10 @@ extension ToiletsViewController: UITableViewDataSource {
         cell.invertColors(isTopThree)
         cell.name.text = washroom.name
         cell.locationDescription.text = washroom.location_description
-        
         cell.areaNameLabel.text = washroom.area_name
-        print(washroom.area_name)
         cell.establishmentNameLabel.text = washroom.establishment_name
         
-        cell.starView.setRating(washroom.general_rating, inTopThree: !isTopThree)
+        cell.starView.setRating(washroom.general_rating, inTopThree: isTopThree)
         
         return cell
     }

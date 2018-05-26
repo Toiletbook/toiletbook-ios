@@ -38,11 +38,11 @@ class StarView: UIView {
         }
         
         starsWithNoHighlight.forEach { (star) in
-            star.image = inTopThree ? #imageLiteral(resourceName: "star-no-rating-hi") : #imageLiteral(resourceName: "star-no-rating-lo")
+            star.image = !inTopThree ? #imageLiteral(resourceName: "star-no-rating-hi") : #imageLiteral(resourceName: "star-no-rating-lo")
         }
         
         if hasDecimalPart {
-            starsWithNoHighlight.first?.image = inTopThree ? #imageLiteral(resourceName: "star-half-rating-hi") : #imageLiteral(resourceName: "star-half-rating-lo")
+            starsWithNoHighlight.first?.image = !inTopThree ? #imageLiteral(resourceName: "star-half-rating-hi") : #imageLiteral(resourceName: "star-half-rating-lo")
         }
         
     }

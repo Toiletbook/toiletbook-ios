@@ -28,16 +28,16 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2F Megamall A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkv-if-4Pl">
-                        <rect key="frame" x="16" y="18" width="252" height="29"/>
+                        <rect key="frame" x="16" y="18" width="244" height="29"/>
                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP6-RR-vtY" customClass="StarView" customModule="ToiletBook" customModuleProvider="target">
-                        <rect key="frame" x="276" y="21" width="72" height="24"/>
+                        <rect key="frame" x="268" y="21" width="80" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="lXE-P5-ZBJ"/>
-                            <constraint firstAttribute="width" constant="72" id="r30-1Q-TZG"/>
+                            <constraint firstAttribute="width" constant="80" id="r30-1Q-TZG"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Besides Starbucks, near Jollibee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH2-pF-Bes">
