@@ -127,20 +127,30 @@ extension LandingPageViewController: UITableViewDataSource {
 
 // Location Stuff:
 extension LandingPageViewController: CLLocationManagerDelegate {
+
+    func taskWhenLocationIsAvailable(_ location: CLLocation) {
+        print(location.coordinate)
+        performSegue(withIdentifier: SegueId.toiletsSegue, sender: self)
+    }
+    
+    func taskWhenLocationIsNull() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.overlayView.alpha = 0.0
+        }) { (completed) in
+            self.overlayView.isHidden = true
+            self.overlayView.alpha = 1.0
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         activityIndicator.isHidden = true
         
-        if let location = locations.first {
-            
-            print(location.coordinate)
-            performSegue(withIdentifier: SegueId.toiletsSegue, sender: self)
-            
+        let forceFail = true
+        
+        if let location = locations.first, !forceFail {
+            taskWhenLocationIsAvailable(location)
         } else {
-            
-            overlayView.isHidden = true
-            // request reload table here
-            
+            taskWhenLocationIsNull()
         }
     }
     
