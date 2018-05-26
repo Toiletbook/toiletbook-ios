@@ -1,0 +1,6 @@
+framework module Pods_ToiletBookTests {
+  umbrella header "Pods-ToiletBookTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
