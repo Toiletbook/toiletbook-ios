@@ -14,7 +14,7 @@ class AddToiletViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationItem.titleView = #imageLiteral(resourceName: "logo-textual-purple")
+        self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo-textual-purple"))// #imageLiteral(resourceName: "logo-textual-purple")
     }
 
     override func didReceiveMemoryWarning() {
