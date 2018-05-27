@@ -8,6 +8,21 @@
 
 import UIKit
 
+extension Formatter {
+    static let withSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.groupingSeparator = ","
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+}
+
+extension Integer{
+    var formattedWithSeparator: String {
+        return Formatter.withSeparator.string(for: self) ?? ""
+    }
+}
+
 class ToiletDetailsViewController: UIViewController {
 
     var washroom: Washroom!
@@ -26,6 +41,8 @@ class ToiletDetailsViewController: UIViewController {
     @IBOutlet weak var schedPill: UIView!
     @IBOutlet weak var pricePill: UIView!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var visits: UILabel!
+    
     // MARK: - Action
     
     @IBAction func deepLinkButtonAction(_ sender: Any) {
@@ -59,6 +76,8 @@ class ToiletDetailsViewController: UIViewController {
         
         initAbout()
         dummifyRatings()
+        
+        visits.text = washroom.visits.formattedWithSeparator
     }
     
     func initNavigationItem() {
@@ -115,7 +134,6 @@ class ToiletDetailsViewController: UIViewController {
         [cleanlinessStar, waitingTimeStar, happinessStar].forEach { (j) in
             j!.setRating(4.5, inTopThree: true, sponsored: washroom.is_sponsored.bool, whiteBg: true)
         }
-        
     }
 
 }
