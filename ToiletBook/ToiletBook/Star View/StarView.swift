@@ -42,7 +42,7 @@ class StarView: UIView {
         }
         
         if hasDecimalPart {
-            starsWithNoHighlight.first?.image = !inTopThree ? (!sponsored ? #imageLiteral(resourceName: "star-half-rating-hi") : #imageLiteral(resourceName: "star-half-sponsored") ) : (!whiteBg ? #imageLiteral(resourceName: "star-half-rating-lo") : #imageLiteral(resourceName: "half-star-x"))
+            starsWithNoHighlight.first?.image = !inTopThree ? (!sponsored ? #imageLiteral(resourceName: "star-half-rating-hi") : #imageLiteral(resourceName: "star-half-sponsored") ) : (!whiteBg ? #imageLiteral(resourceName: "star-half-rating-lo") : (!sponsored ? #imageLiteral(resourceName: "half-star-x") : #imageLiteral(resourceName: "star-half-sponsored") ) )
         }
         
     }

@@ -23,6 +23,9 @@ class ToiletDetailsViewController: UIViewController {
     @IBOutlet weak var establishmentName: UILabel!
     @IBOutlet weak var deeplinkButton: UIButton!
     
+    @IBOutlet weak var schedPill: UIView!
+    @IBOutlet weak var pricePill: UIView!
+    @IBOutlet weak var priceLabel: UILabel!
     // MARK: - Action
     
     @IBAction func deepLinkButtonAction(_ sender: Any) {
@@ -47,6 +50,12 @@ class ToiletDetailsViewController: UIViewController {
         
         establishmentPill.layer.cornerRadius = establishmentPill.frame.height/2
         establishmentName.text = washroom.establishment_name
+        
+        [schedPill, pricePill].forEach { (v) in
+            v!.layer.cornerRadius = v!.frame.height/2
+        }
+        
+        priceLabel.text = washroom.is_free.bool ? "FREE" : String("10 PHP") // washroom.entry_amount
         
     }
     
