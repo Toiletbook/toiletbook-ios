@@ -175,7 +175,7 @@ extension LandingPageViewController: CLLocationManagerDelegate {
                 }) { (completed) in
                     self.overlayView.isHidden = true
                     self.activityIndicator.isHidden = true
-                }
+                
             }
         }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,17 +24,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        initNotificationPermissions()
+        
         return true
+    }
+    
+    func initNotificationPermissions() {
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound];
+        
+        center.requestAuthorization(options: options) {
+            (granted, error) in
+            if !granted {
+                print("Something went wrong")
+            }
+            
+            
+            
+            let yesAction = UNNotificationAction(identifier: "Test123", title: "Yes", options: [])
+            let noAction = UNNotificationAction(identifier: "Test123", title: "No", options: [.destructive])
+            
+            let category = UNNotificationCategory(identifier: "Test12345",
+                                                  actions: [yesAction, noAction],
+                                                  intentIdentifiers: [], options: [])
+
+            
+            center.setNotificationCategories([category])
+            
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        👻()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        👻()
+    }
+    
+    func 👻() {
+        if let vc = (window?.rootViewController as! UINavigationController).visibleViewController as? ToiletDetailsViewController {
+            vc.prepareNotif()
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -50,4 +87,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

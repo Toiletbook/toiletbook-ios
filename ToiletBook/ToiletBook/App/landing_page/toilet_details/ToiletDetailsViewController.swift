@@ -8,7 +8,7 @@
 
 import MapKit
 import UIKit
-
+import UserNotifications
 
 extension Formatter {
     static let withSeparator: NumberFormatter = {
@@ -172,6 +172,36 @@ class ToiletDetailsViewController: UIViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinates
         mapKitView.addAnnotation(annotation)
+    }
+    
+    // MARK: - Notifs
+    
+    func prepareNotif() {
+        
+
+        let content = UNMutableNotificationContent()
+        content.title = "Hey there!"
+        content.body = "Did you use the washroom in \(washroom.establishment_name!), \(washroom.name!)?"
+        content.sound = UNNotificationSound.default()
+        content.categoryIdentifier = "Test12345"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+        
+        let identifier = "ToiletBook"
+        
+        let request = UNNotificationRequest(identifier: identifier,
+                                            content: content, trigger: trigger)
+        
+        let center = UNUserNotificationCenter.current()
+        
+        
+        
+        center.add(request, withCompletionHandler: { (error) in
+            if let error = error {
+                error.localizedDescription.errorPrint()
+            }
+        })
+        
     }
     
 }
