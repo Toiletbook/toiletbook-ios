@@ -23,6 +23,15 @@ class AddToiletViewController: UIViewController {
     }
     
 
+    @IBAction func submitHandler(_ sender: Any) {
+        let alert = UIAlertController(title: "ToiletBook", message: "Nice! Your application is now pending!", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Yay", style: .default) { (action) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

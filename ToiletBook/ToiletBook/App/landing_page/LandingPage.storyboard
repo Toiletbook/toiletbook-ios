@@ -411,6 +411,7 @@
                                 </state>
                                 <connections>
                                     <action selector="findWashroomsButtonAction:" destination="VhP-WY-ZoW" eventType="touchUpInside" id="FGg-1b-9mK"/>
+                                    <action selector="submitHandler:" destination="zff-1C-S96" eventType="touchUpInside" id="6qV-RE-MgE"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MOR-di-Ijo">
