@@ -29,7 +29,6 @@ class ToiletDetailsViewController: UIViewController {
 
     var washroom: Washroom!
     
-    
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var stars: StarView!
     @IBOutlet weak var locationPin: UIImageView!
@@ -95,6 +94,8 @@ class ToiletDetailsViewController: UIViewController {
         dummifyRatings()
         
         visits.text = washroom.visits.formattedWithSeparator
+        
+        initMapKitView()
     }
     
     func initNavigationItem() {
@@ -152,5 +153,25 @@ class ToiletDetailsViewController: UIViewController {
             j!.setRating(4.5, inTopThree: true, sponsored: washroom.is_sponsored.bool, whiteBg: true)
         }
     }
-
+    
+    // MARK: - Pahabol Map Kit
+    
+    @IBOutlet weak var mapKitView: MKMapView!
+    
+    func initMapKitView() {
+        let latitude: CLLocationDegrees = washroom.latitude
+        let longitude: CLLocationDegrees = washroom.longitude
+        
+        let regionDistance:CLLocationDistance = 500
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        
+        mapKitView.showsUserLocation = true
+        mapKitView.setRegion(regionSpan, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinates
+        mapKitView.addAnnotation(annotation)
+    }
+    
 }

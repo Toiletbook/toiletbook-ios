@@ -241,7 +241,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COX-mn-v1a">
-                                                <rect key="frame" x="0.0" y="532" width="375" height="500"/>
+                                                <rect key="frame" x="0.0" y="524" width="375" height="500"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ci9-iN-hda">
                                                         <rect key="frame" x="8" y="8" width="359" height="33"/>
@@ -368,14 +368,8 @@
                                                     <constraint firstItem="nKe-7P-Y08" firstAttribute="leading" secondItem="Ufc-fa-5t9" secondAttribute="trailing" constant="56" id="zwJ-iw-veZ"/>
                                                 </constraints>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info-map-bg" translatesAutoresizingMaskIntoConstraints="NO" id="8iQ-wB-8Hh">
-                                                <rect key="frame" x="0.0" y="108" width="375" height="208"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="208" id="xdl-gn-eah"/>
-                                                </constraints>
-                                            </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRe-gg-2w4">
-                                                <rect key="frame" x="0.0" y="316" width="375" height="216"/>
+                                                <rect key="frame" x="0.0" y="308" width="375" height="216"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About the Washroom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-ky-T2A">
                                                         <rect key="frame" x="8" y="8" width="359" height="33"/>
@@ -654,30 +648,51 @@
                                                     <constraint firstAttribute="trailing" secondItem="Ych-ky-T2A" secondAttribute="trailing" constant="8" id="vZO-RI-gfC"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTE-23-Gb8">
-                                                <rect key="frame" x="159" y="171" width="56" height="56"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="info-map-button-con"/>
-                                                <connections>
-                                                    <action selector="deepLinkButtonAction:" destination="SDA-5A-kBo" eventType="touchUpInside" id="6Th-vh-P9c"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmO-gX-2Y7">
+                                                <rect key="frame" x="0.0" y="108" width="375" height="200"/>
+                                                <subviews>
+                                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8rK-U3-93p">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                    </mapView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTE-23-Gb8">
+                                                        <rect key="frame" x="327" y="152" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="kgk-BB-6rZ"/>
+                                                            <constraint firstAttribute="height" constant="40" id="tl5-hF-c2l"/>
+                                                        </constraints>
+                                                        <state key="normal" image="info-map-button-con"/>
+                                                        <connections>
+                                                            <action selector="deepLinkButtonAction:" destination="SDA-5A-kBo" eventType="touchUpInside" id="6Th-vh-P9c"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="BTE-23-Gb8" secondAttribute="trailing" constant="8" id="Qfx-bK-xDx"/>
+                                                    <constraint firstAttribute="height" constant="200" id="Y2B-Zx-Xhe"/>
+                                                    <constraint firstItem="8rK-U3-93p" firstAttribute="leading" secondItem="vmO-gX-2Y7" secondAttribute="leading" id="ZDP-Yu-9aT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8rK-U3-93p" secondAttribute="bottom" id="dLR-9i-VGi"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8rK-U3-93p" secondAttribute="trailing" id="vXr-tJ-cOn"/>
+                                                    <constraint firstAttribute="bottom" secondItem="BTE-23-Gb8" secondAttribute="bottom" constant="8" id="wbi-h7-lx8"/>
+                                                    <constraint firstItem="8rK-U3-93p" firstAttribute="top" secondItem="vmO-gX-2Y7" secondAttribute="top" id="zEK-BC-A2C"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="COX-mn-v1a" firstAttribute="leading" secondItem="ULU-wD-Z9e" secondAttribute="leading" id="4gp-uo-iLP"/>
                                             <constraint firstItem="6yN-Ci-EoO" firstAttribute="leading" secondItem="ULU-wD-Z9e" secondAttribute="leading" id="EXV-eO-a0G"/>
-                                            <constraint firstItem="8iQ-wB-8Hh" firstAttribute="leading" secondItem="ULU-wD-Z9e" secondAttribute="leading" id="MA3-dZ-Nr2"/>
-                                            <constraint firstItem="8iQ-wB-8Hh" firstAttribute="top" secondItem="6yN-Ci-EoO" secondAttribute="bottom" id="Qym-Pq-Rfi"/>
                                             <constraint firstAttribute="height" constant="1200" id="S1M-zr-92h"/>
-                                            <constraint firstItem="SRe-gg-2w4" firstAttribute="top" secondItem="8iQ-wB-8Hh" secondAttribute="bottom" id="W3r-q8-dp8"/>
                                             <constraint firstItem="6yN-Ci-EoO" firstAttribute="top" secondItem="ULU-wD-Z9e" secondAttribute="top" id="ZlX-5D-Fjf"/>
                                             <constraint firstAttribute="trailing" secondItem="6yN-Ci-EoO" secondAttribute="trailing" id="aSw-6P-tLh"/>
+                                            <constraint firstItem="vmO-gX-2Y7" firstAttribute="leading" secondItem="ULU-wD-Z9e" secondAttribute="leading" id="ga7-ah-dRd"/>
                                             <constraint firstItem="COX-mn-v1a" firstAttribute="top" secondItem="SRe-gg-2w4" secondAttribute="bottom" id="i3c-wR-2Rb"/>
                                             <constraint firstItem="SRe-gg-2w4" firstAttribute="leading" secondItem="ULU-wD-Z9e" secondAttribute="leading" id="j50-Zc-52W"/>
-                                            <constraint firstAttribute="trailing" secondItem="8iQ-wB-8Hh" secondAttribute="trailing" id="k7h-UN-Mpi"/>
                                             <constraint firstAttribute="trailing" secondItem="SRe-gg-2w4" secondAttribute="trailing" id="mdL-9r-dyZ"/>
                                             <constraint firstAttribute="trailing" secondItem="COX-mn-v1a" secondAttribute="trailing" id="pLk-9m-MQ4"/>
+                                            <constraint firstAttribute="trailing" secondItem="vmO-gX-2Y7" secondAttribute="trailing" id="uTA-hV-EZ2"/>
+                                            <constraint firstItem="vmO-gX-2Y7" firstAttribute="top" secondItem="6yN-Ci-EoO" secondAttribute="bottom" id="xXN-hV-I9m"/>
+                                            <constraint firstItem="SRe-gg-2w4" firstAttribute="top" secondItem="vmO-gX-2Y7" secondAttribute="bottom" id="yCy-19-33S"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -717,6 +732,7 @@
                         <outlet property="infantView" destination="QOO-hh-yoL" id="UiY-Xi-DJG"/>
                         <outlet property="locationDescription" destination="Hfj-Ew-ed5" id="hlq-mN-BoW"/>
                         <outlet property="locationPin" destination="N8x-qa-m7K" id="HNc-1e-pZy"/>
+                        <outlet property="mapKitView" destination="8rK-U3-93p" id="MxJ-ii-BsK"/>
                         <outlet property="name" destination="Bdn-si-QvC" id="YMN-F1-NRZ"/>
                         <outlet property="priceLabel" destination="Fk5-KS-ggC" id="Bm0-bh-yHc"/>
                         <outlet property="pricePill" destination="3yV-Cr-1y6" id="Ek6-r8-fZg"/>
@@ -743,7 +759,6 @@
         <image name="atr-tissue" width="32" height="32"/>
         <image name="atr-vendor" width="32" height="32"/>
         <image name="atr-water" width="32" height="32"/>
-        <image name="info-map-bg" width="752" height="417"/>
         <image name="info-map-button-con" width="200" height="200"/>
         <image name="info-mock-foot-traffic" width="683" height="311"/>
         <image name="location-pin-template" width="24" height="24"/>
