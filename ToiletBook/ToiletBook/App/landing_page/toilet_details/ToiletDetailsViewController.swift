@@ -58,7 +58,11 @@ class ToiletDetailsViewController: UIViewController {
         priceLabel.text = washroom.is_free.bool ? "FREE" : String("10 PHP") // washroom.entry_amount
         
         initAbout()
-        
+        dummifyRatings()
+    }
+    
+    func initNavigationItem() {
+        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo-textual-purple"))
     }
     
     // MARK - About
@@ -101,8 +105,17 @@ class ToiletDetailsViewController: UIViewController {
         
     }
     
-    func initNavigationItem() {
-        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo-textual-purple"))
-    }
+    // MARK: - Dummy Ratings
     
+    @IBOutlet weak var cleanlinessStar: StarView!
+    @IBOutlet weak var waitingTimeStar: StarView!
+    @IBOutlet weak var happinessStar: StarView!
+    
+    func dummifyRatings() {
+        [cleanlinessStar, waitingTimeStar, happinessStar].forEach { (j) in
+            j!.setRating(4.5, inTopThree: true, sponsored: washroom.is_sponsored.bool, whiteBg: true)
+        }
+        
+    }
+
 }
