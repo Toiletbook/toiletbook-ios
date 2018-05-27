@@ -21,6 +21,7 @@ class LandingPageViewController: UIViewController {
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var findNearbyWashroomsButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var becomeAParterButton: UIButton!
     
     var refreshControl: UIRefreshControl!
     
@@ -77,6 +78,10 @@ class LandingPageViewController: UIViewController {
         initSearchBar()
         initEstablishmentsTableView()
         findNearbyWashroomsButton.layer.cornerRadius = findNearbyWashroomsButton.frame.height/2
+        
+        becomeAParterButton.layer.borderColor = UIColor.white.cgColor
+        becomeAParterButton.layer.borderWidth = 2.0
+        becomeAParterButton.layer.cornerRadius = becomeAParterButton.frame.height/2
     }
     
     func initNavigationItem() {
@@ -175,7 +180,7 @@ extension LandingPageViewController: CLLocationManagerDelegate {
                 }) { (completed) in
                     self.overlayView.isHidden = true
                     self.activityIndicator.isHidden = true
-                
+                }
             }
         }
     
