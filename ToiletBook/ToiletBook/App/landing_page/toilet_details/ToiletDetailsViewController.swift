@@ -12,12 +12,18 @@ class ToiletDetailsViewController: UIViewController {
 
     var washroom: Washroom!
     
-    var portedView: UIView!
     
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var stars: StarView!
+    @IBOutlet weak var locationPin: UIImageView!
+    @IBOutlet weak var locationDescription: UILabel!
+    @IBOutlet weak var areaPill: UIView!
+    @IBOutlet weak var areaName: UILabel!
+    @IBOutlet weak var establishmentPill: UIView!
+    @IBOutlet weak var establishmentName: UILabel!
     @IBOutlet weak var deeplinkButton: UIButton!
-    @IBOutlet weak var attributeInfoView: UIView!
-    @IBOutlet weak var dataView: UIView!
+    
+    // MARK: - Action
     
     @IBAction func deepLinkButtonAction(_ sender: Any) {
     }
@@ -26,12 +32,21 @@ class ToiletDetailsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initUi()
-        headerView.addSubview(portedView)
-        (portedView as! ToiletTableViewCell).attributesStackView.isHidden = true
     }
     
     func initUi() {
         initNavigationItem()
+        
+        name.text = washroom.name
+        stars.setRating(washroom.general_rating, inTopThree: true, sponsored: washroom.is_sponsored.bool, whiteBg: true)
+        locationPin.tintColor = Colors.dark.value
+        locationDescription.text = washroom.location_description
+        
+        areaPill.layer.cornerRadius = areaPill.frame.height/2
+        areaName.text = washroom.area_name
+        
+        establishmentPill.layer.cornerRadius = establishmentPill.frame.height/2
+        establishmentName.text = washroom.establishment_name
         
     }
     

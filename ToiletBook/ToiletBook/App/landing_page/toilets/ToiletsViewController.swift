@@ -17,6 +17,13 @@ extension Int {
     
 }
 
+extension UIView
+{
+    func copyView<T: UIView>() -> T {
+        return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self)) as! T
+    }
+}
+
 class ToiletsViewController: UIViewController {
 
     enum SegueId {
@@ -93,7 +100,6 @@ extension ToiletsViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueId.toiletDetailSegue, let dest = segue.destination as? ToiletDetailsViewController {
-            dest.portedView = toiletsTableView.cellForRow(at: IndexPath(row: currentRow, section: 0)) as! ToiletTableViewCell
             dest.washroom = selectedWashroom
         }
     }
@@ -129,7 +135,7 @@ extension ToiletsViewController: UITableViewDataSource {
         cell.areaNameLabel.text = washroom.area_name
         cell.establishmentNameLabel.text = washroom.establishment_name
         
-        cell.starView.setRating(washroom.general_rating, inTopThree: isTopThree, sponsored: washroom.is_sponsored.bool)
+        cell.starView.setRating(washroom.general_rating, inTopThree: isTopThree, sponsored: washroom.is_sponsored.bool, whiteBg: false)
         
         // setup attributes:
         cell.genderImageView.image = {
