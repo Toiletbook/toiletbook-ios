@@ -29,8 +29,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOu-Cb-Ioe">
                                 <rect key="frame" x="0.0" y="10" width="375" height="667"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="outdoors" translatesAutoresizingMaskIntoConstraints="NO" id="WMP-Eo-9Ky">
+                                        <rect key="frame" x="-530" y="0.0" width="1108" height="659"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="64i-QQ-ghw">
-                                        <rect key="frame" x="16" y="275.5" width="343" height="116"/>
+                                        <rect key="frame" x="16" y="275" width="343" height="116"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuy-BI-c8i">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
@@ -48,7 +52,7 @@
                                                 <subviews>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4lK-Rb-xgr">
                                                         <rect key="frame" x="20" y="6.5" width="37" height="37"/>
-                                                        <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </activityIndicatorView>
                                                 </subviews>
                                                 <constraints>
@@ -743,5 +747,6 @@
         <image name="info-map-button-con" width="200" height="200"/>
         <image name="info-mock-foot-traffic" width="683" height="311"/>
         <image name="location-pin-template" width="24" height="24"/>
+        <image name="outdoors" width="1305" height="979"/>
     </resources>
 </document>

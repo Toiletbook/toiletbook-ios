@@ -6,7 +6,9 @@
 //  Copyright © 2018 Toilet Book Team. All rights reserved.
 //
 
+import MapKit
 import UIKit
+
 
 extension Formatter {
     static let withSeparator: NumberFormatter = {
@@ -45,7 +47,22 @@ class ToiletDetailsViewController: UIViewController {
     
     // MARK: - Action
     
+    
     @IBAction func deepLinkButtonAction(_ sender: Any) {
+        let latitude: CLLocationDegrees = washroom.latitude
+        let longitude: CLLocationDegrees = washroom.longitude
+        
+        let regionDistance:CLLocationDistance = 500
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = washroom.name
+        mapItem.openInMaps(launchOptions: options)
     }
     
     override func viewDidLoad() {

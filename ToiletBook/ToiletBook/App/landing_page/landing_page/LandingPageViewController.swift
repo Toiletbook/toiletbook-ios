@@ -10,8 +10,6 @@ import Alamofire
 import CoreLocation
 import UIKit
 
-
-
 class LandingPageViewController: UIViewController {
 
     enum SegueId {
@@ -176,6 +174,7 @@ extension LandingPageViewController: CLLocationManagerDelegate {
                     self.overlayView.alpha = 0.0
                 }) { (completed) in
                     self.overlayView.isHidden = true
+                    self.activityIndicator.isHidden = true
                 }
             }
         }
@@ -183,8 +182,6 @@ extension LandingPageViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        activityIndicator.isHidden = true
-        
         let forceFail = true
         
         if let location = locations.first, !forceFail {
