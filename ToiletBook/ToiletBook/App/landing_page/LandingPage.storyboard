@@ -301,7 +301,7 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="z5I-Bk-6hz">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="z5I-Bk-6hz" userLabel="About Stack 1">
                                                         <rect key="frame" x="8" y="69" width="120" height="132"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahp-Jr-EKW">
@@ -324,7 +324,6 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="pnR-J3-ZR9" firstAttribute="leading" secondItem="Kas-hd-R8Z" secondAttribute="trailing" constant="8" id="4rp-EG-aoa"/>
                                                                     <constraint firstItem="Kas-hd-R8Z" firstAttribute="leading" secondItem="ahp-Jr-EKW" secondAttribute="leading" id="OCN-dc-d1c"/>
@@ -354,7 +353,6 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="KpZ-Ug-ZjD" firstAttribute="centerY" secondItem="IJf-ss-zAr" secondAttribute="centerY" id="GFR-Sp-6vf"/>
                                                                     <constraint firstItem="j92-CJ-vrq" firstAttribute="centerY" secondItem="IJf-ss-zAr" secondAttribute="centerY" id="Ovw-zx-z8a"/>
@@ -384,7 +382,6 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="r6j-Kt-zko" firstAttribute="centerY" secondItem="E8f-ts-djt" secondAttribute="centerY" id="13j-5s-cim"/>
                                                                     <constraint firstItem="r6j-Kt-zko" firstAttribute="leading" secondItem="61g-Fq-5Pr" secondAttribute="trailing" constant="8" id="6pW-ba-Wla"/>
@@ -414,7 +411,6 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="Czs-hY-mET" firstAttribute="leading" secondItem="v4b-Tz-1YX" secondAttribute="leading" id="1CW-Qs-367"/>
                                                                     <constraint firstItem="Czs-hY-mET" firstAttribute="centerY" secondItem="v4b-Tz-1YX" secondAttribute="centerY" id="MZt-q1-Agy"/>
@@ -426,7 +422,7 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="12e-nz-bNl">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="12e-nz-bNl" userLabel="About Stack 2">
                                                         <rect key="frame" x="160" y="69" width="120" height="98"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YO-OP-VKA">
@@ -449,7 +445,6 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="1AN-UU-DFT" firstAttribute="leading" secondItem="EqR-Xx-Arf" secondAttribute="trailing" constant="8" id="3Nb-QQ-psh"/>
                                                                     <constraint firstAttribute="width" constant="120" id="4GV-AM-3Db"/>
@@ -479,7 +474,6 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="120" id="6hc-eO-pLv"/>
                                                                     <constraint firstItem="l0c-mo-isK" firstAttribute="centerY" secondItem="QOO-hh-yoL" secondAttribute="centerY" id="APT-Ca-8wi"/>
@@ -509,7 +503,6 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="120" id="AIr-ix-cvZ"/>
                                                                     <constraint firstItem="XWd-D9-WZL" firstAttribute="leading" secondItem="u0A-mh-d2u" secondAttribute="leading" id="AuV-kP-Taz"/>
@@ -587,16 +580,25 @@
                     <connections>
                         <outlet property="areaName" destination="8Tf-Ui-kgo" id="7Dw-eT-WvR"/>
                         <outlet property="areaPill" destination="yTg-f2-RBT" id="Urz-vv-1t3"/>
+                        <outlet property="bidetView" destination="v4b-Tz-1YX" id="jVp-aQ-wKS"/>
                         <outlet property="deeplinkButton" destination="BTE-23-Gb8" id="6Sb-go-AD7"/>
                         <outlet property="establishmentName" destination="ip0-Ny-IV3" id="LPe-OS-Pr0"/>
                         <outlet property="establishmentPill" destination="ZnW-cD-L4b" id="smw-I8-xFr"/>
+                        <outlet property="genderIcon" destination="Kas-hd-R8Z" id="fW2-tQ-iGG"/>
+                        <outlet property="genderLabel" destination="pnR-J3-ZR9" id="ISq-8C-Zhi"/>
+                        <outlet property="genderView" destination="ahp-Jr-EKW" id="Jqr-g0-zaX"/>
+                        <outlet property="infantView" destination="QOO-hh-yoL" id="UiY-Xi-DJG"/>
                         <outlet property="locationDescription" destination="Hfj-Ew-ed5" id="hlq-mN-BoW"/>
                         <outlet property="locationPin" destination="N8x-qa-m7K" id="HNc-1e-pZy"/>
                         <outlet property="name" destination="Bdn-si-QvC" id="YMN-F1-NRZ"/>
                         <outlet property="priceLabel" destination="Fk5-KS-ggC" id="Bm0-bh-yHc"/>
                         <outlet property="pricePill" destination="3yV-Cr-1y6" id="Ek6-r8-fZg"/>
+                        <outlet property="pwdView" destination="8YO-OP-VKA" id="dac-YN-zTk"/>
                         <outlet property="schedPill" destination="II2-uq-PeS" id="KqZ-jQ-4Cm"/>
                         <outlet property="stars" destination="1k3-Q8-AdK" id="UwZ-h3-zvL"/>
+                        <outlet property="tissuesView" destination="E8f-ts-djt" id="4tO-Lm-YaZ"/>
+                        <outlet property="vendorView" destination="u0A-mh-d2u" id="1aL-mx-dmB"/>
+                        <outlet property="waterView" destination="IJf-ss-zAr" id="iia-Ir-joV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mu-qL-839" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -57,6 +57,48 @@ class ToiletDetailsViewController: UIViewController {
         
         priceLabel.text = washroom.is_free.bool ? "FREE" : String("10 PHP") // washroom.entry_amount
         
+        initAbout()
+        
+    }
+    
+    // MARK - About
+    
+    @IBOutlet weak var genderView: UIView!
+    @IBOutlet weak var genderIcon: UIImageView!
+    @IBOutlet weak var genderLabel: UILabel!
+    
+    @IBOutlet weak var waterView: UIView!
+    @IBOutlet weak var tissuesView: UIView!
+    @IBOutlet weak var bidetView: UIView!
+    @IBOutlet weak var pwdView: UIView!
+    @IBOutlet weak var infantView: UIView!
+    @IBOutlet weak var vendorView: UIView!
+    
+    func initAbout() {
+        
+        genderIcon.image = {
+            
+            if washroom.gender_is_male_only.bool {
+                genderLabel.text = "MALE"
+                return #imageLiteral(resourceName: "atr-gender-male")
+            }
+            
+            if washroom.gender_is_female_only.bool {
+                genderLabel.text = "FEMALE"
+                return #imageLiteral(resourceName: "atr-gender-female")
+            }
+            
+            genderLabel.text = "BOTH"
+            return #imageLiteral(resourceName: "atr-gender-unisex")
+        }()
+        
+        bidetView.alpha = washroom.has_bidet.bool ? 1.0 : 0.30
+        infantView.alpha = washroom.has_diaper_station.bool ? 1.0 : 0.30
+        pwdView.alpha = washroom.is_pwd_friendly.bool ? 1.0 : 0.30
+        tissuesView.alpha = washroom.has_tissues.bool ? 1.0 : 0.30
+        vendorView.alpha = washroom.has_vending_machine.bool ? 1.0 : 0.30
+        waterView.alpha = washroom.has_water.bool ? 1.0 : 0.30
+        
     }
     
     func initNavigationItem() {
