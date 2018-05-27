@@ -149,8 +149,16 @@ class ToiletDetailsViewController: UIViewController {
     @IBOutlet weak var happinessStar: StarView!
     
     func dummifyRatings() {
+        
+        let 😸: [Int] = washroom.washroom_attributes.map { (🐉) -> Int in
+            return 🐉.average_rating
+        }
+        
+        var n = 0
+        
         [cleanlinessStar, waitingTimeStar, happinessStar].forEach { (j) in
-            j!.setRating(4.5, inTopThree: true, sponsored: washroom.is_sponsored.bool, whiteBg: true)
+            j!.setRating(Double(😸[0]), inTopThree: true, sponsored: washroom.is_sponsored.bool, whiteBg: true)
+            n += 1
         }
     }
     

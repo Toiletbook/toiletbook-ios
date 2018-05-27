@@ -105,6 +105,7 @@ class visitor_statsObject: Mappable {
 }
 
 class washroom_attributesObject: Mappable {
+    
     var average_rating: Int!
     var name: String!
     
